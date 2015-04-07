@@ -487,7 +487,9 @@ footer {
 	border-color:white;
 	opacity:0.8;
 	text-align: center;
-	height:30px;
+    font-size: 150%;
+    padding-top: 5%;
+    padding-bottom: 5%;
 }
 
 #end_button{
@@ -495,12 +497,19 @@ footer {
 	color:white;
 	border-color: black;
 	text-align: center;
+	height:40px;
+}
+
+#end_button:hover{
+	color:black;
+	background-color: white;
+	border-color: black;
 }
 
 #form_button:hover{
-	background-color: cornflowerblue;
-	border-color: cornflowerblue;
-	opacity:1;
+	background-color: #e2dfdf;
+	border-color: #77c48c;
+	opacity:0.9;
 }
 
 /* MailChimp Form Embed Code - Slim - 08/17/2011 */
