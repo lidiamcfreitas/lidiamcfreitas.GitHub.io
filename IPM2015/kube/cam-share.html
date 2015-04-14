@@ -1,0 +1,45 @@
+<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+    <div class="unit-70">
+        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-location-arrow fa-lg"></i> Partilha</h3>             </span>
+    </div>
+    <div class="units-30">
+        <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+    </div>
+</div>
+		<div class="units-row units-split">
+   			<div class=" topboxGal unit-50">
+                <button class="btn-share fa fa-sort-asc fa-5x"></button>
+                <button class="btn-share fa fa-exclamation fa-5x"></button>
+   			</div>
+            <div class=" topboxGal unit-50">
+                <button class=" btn-share fa fa-bomb fa-5x"></button>
+                <button class=" btn-share fa fa-cart-plus fa-5x"></button>
+   			</div>
+
+    </div>
+
+
+    <script>
+        
+        $(".btn-share").click(function() {
+            
+            $.ajax({
+					type: "GET",
+					url: "cam-share-cancel.html",
+					dataType: "html",
+					success: function(html){
+						$("#replace-screen").html(html);
+						var a = $(".end-screen").position();
+						$(".end-screen").height(offset);
+					},
+					error: function(x1,x2,x3){
+					}
+				});
+		});
+        $(".btn-red").click(function() {
+            
+            $("#change").empty().html(a);
+		});
+        
+
+	</script>
