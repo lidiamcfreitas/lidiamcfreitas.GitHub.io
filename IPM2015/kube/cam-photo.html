@@ -1,4 +1,4 @@
-<div style='background-image: url("image/bg.jpg");background-size:700px 400px;border:0px;position:relative ' class="screen-fit">
+<div id="background" style='background-image: url("image/bg.jpg");background-size:700px 400px;border:0px;position:relative;' class="screen-fit">
 	<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
 			<div class="unit-70">
 				<span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-camera"></i> Câmera</h3></span>
@@ -41,20 +41,24 @@
    		</div>
 </div>
      <script>
+        $(".zoom-io").toggle();
         $(".fa-search").click(function() {
             $(".zoom-io").toggle();
 		});
-        
-        $(".btn-green").click(function() {
-            $("#text").html("Foto partilhada com sucesso");
-            $(".btn").hide();
-		});
+         
+         $(".fa-plus-circle").click(function() {
+            $("#background").css({"background-size": "1050px 600px", "background-position":"center"})
+         });
+         
+        $(".fa-minus-circle").click(function() {
+            $("#background").css({"background-size": "700px 400px", "background-position":"0 0"})
+         });
          
         $("#btn-photo").click(function() {
             up();
             activated = !activated;
             if(!lock){
-				load_page("cam-after-photo.html");
+				load_page("cam-after-photo.html",true);
 			}
 			return false;
 		});

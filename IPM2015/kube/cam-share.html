@@ -8,12 +8,12 @@
 </div>
 		<div class="units-row units-split">
    			<div class=" topboxGal unit-50">
-                <button class="btn btn-black"><i style="color:white" class="fa fa-whatsapp fa-5x"></i></button>
-                <button class="btn btn-black"><i style="color:white" class="fa fa-envelope fa-5x"></i></button>
+                <button class="btn btn-black btn-share"><i style="color:white" class="fa fa-whatsapp fa-5x"></i></button>
+                <button class="btn btn-black btn-share"><i style="color:white" class="fa fa-envelope fa-5x"></i></button>
    			</div>
             <div style class=" topboxGal unit-50">
-                <button class="btn btn-black"><i style="color:white" class="fa fa-instagram fa-5x"></i></button>
-                <button class="btn btn-black"><i style="color:white" class="fa fa-facebook-official fa-5x"></i></button>
+                <button class="btn btn-black btn-share"><i style="color:white" class="fa fa-instagram fa-5x"></i></button>
+                <button class="btn btn-black btn-share"><i style="color:white" class="fa fa-facebook-official fa-5x"></i></button>
    			</div>
 
     </div>
@@ -21,21 +21,16 @@
 
     <script>
         
-        $(".btn-black").click(function() {
-            
-            $.ajax({
-					type: "GET",
-					url: "cam-share-cancel.html",
-					dataType: "html",
-					success: function(html){
-						$("#replace-screen").html(html);
-						var a = $(".end-screen").position();
-						$(".end-screen").height(offset);
-					},
-					error: function(x1,x2,x3){
-					}
-				});
+        
+        $(".btn-share").click(function() {
+            up();
+            activated = !activated;
+            if(!lock){
+				load_page("cam-share-cancel.html",true);
+			}
+			return false;
 		});
+        
         $(".btn-red").click(function() {
             
             $("#change").empty().html(a);
