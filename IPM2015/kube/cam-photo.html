@@ -1,0 +1,71 @@
+<div style='background-image: url("image/bg.jpg");background-size:700px 400px;border:0px;position:relative ' class="screen-fit">
+	<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+			<div class="unit-70">
+				<span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-camera"></i> Câmera</h3></span>
+		</div> 
+		<div class="units-30">
+			<span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+		</div>
+		</div>
+    
+	<div class="units-row units-split text-centered" style="margin-top:-15px">
+        
+        <div style="color:rgba(0,0,0,0.9)" class="unit-33 text-centered ">
+   	        <i class="fa fa-search fa-4x"></i>
+   	    </div>
+        <div  style="color:rgba(0,0,0,0.9);" class="unit-33 text-centered ">
+   	        <i class="fa fa-plus-circle fa-3x zoom-io"></i>
+   	    </div>
+        <div style="color:rgba(0,0,0,0.9);" class="unit-33 text-centered ">
+   	        <i class="fa fa-minus-circle fa-3x zoom-io"></i>
+   	    </div>
+
+	</div>
+   	
+    
+    <div class="units-row units-split end-screen " style="padding-top:95px">
+   			
+   			<div style="color:black" class="unit-33 text-centered stuff">
+   				<i class="fa fa-long-arrow-left fa-4x"></i>
+   			</div>
+        
+
+            <div id="btn-photo" style="color:#1079A3" class="unit-33 text-centered stuff">
+   				<i class="fa fa-dot-circle-o fa-4x"></i>
+   			</div>
+            
+        
+            <div style="color:black" class="unit-33 text-centered stuff">
+   				<i class="fa fa-long-arrow-right fa-4x"></i>
+   			</div>
+   		</div>
+</div>
+     <script>
+        $(".fa-search").click(function() {
+            $(".zoom-io").toggle();
+		});
+        
+        $(".btn-green").click(function() {
+            $("#text").html("Foto partilhada com sucesso");
+            $(".btn").hide();
+		});
+         
+        $("#btn-photo").click(function() {
+            up();
+            activated = !activated;
+            if(!lock){
+				load_page("cam-after-photo.html");
+			}
+			return false;
+		});
+
+	</script>
+
+<!--
+<div id="stuff" style="color:black;border-color:black" class="unit-33 text-centered trans-btn">
+    <span class="fa-stack fa-lg">
+      <i class="fa fa-circle-thin fa-stack-5x"></i>
+      <i class="fa fa-circle fa-stack-4x"></i>
+    </span>
+</div>
+-->
