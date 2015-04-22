@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iRave Grupo 16</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/kube.min.css" />
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/ipm.css"/>
+    <link rel="stylesheet" href="powerange-master/dist/powerange.css" />
+
+</head>
+<body>
+	<div class="topbox" >
+		<button id="button-main" >Menu Button</button>
+		<button id="button-back" >Back Button</button>
+	</div>
+    <div style="margin:auto" class="screen">
+    	<div id="main-container">
+		   	<div class="menu-fit" id="nav-menu">
+				<div id="menu-icons" class="units-row units-split" >
+					<div class="slick-menu big">
+                 
+					</div>
+				</div>
+				<div class="units-row units-split">
+   					<div class="slick-menu-text">
+		   	
+					</div>
+				</div>
+		   	</div>
+		   	<div id="replace-screen">
+		   	</div>
+		</div>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/kube.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/dragdealer.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="powerange-master/dist/powerange.min.js"></script> 
+    <script src="js/draggabilly.pkgd.min.js"></script>
+    
+    <script>
+
+    	var lock = false;
+    	var currentMain = 0;
+    	var currentPic = 0;
+    	var offset = getPPI()*1.28*2.36;
+		var activated = false;	
+		var backtracker = [];
+		var currentBackground;
+		var currentPage;
+		var somModoManual = 0;
+        var somModoConstante = 50;
+        var somActiveMode = 0;
+		var maxId = 5;
+		
+		var slideIndex = 0;
+
+		var gallery = {
+			day: [{
+				date: "25/06/02",
+				photos: [{
+					image:"pic1c.jpg",
+					id:1
+				},{
+					image: "pic2c.jpg",
+					id:2
+				}]
+			},{
+				date: "26/06/02",
+				photos: [{
+					image:"pic3c.jpg",
+					id:3
+				},{
+					image: "pic4c.jpg",
+					id:4
+				}] 
+			} 
+			]
+		};
+        
+        var friends = ["amigos1.jpg", "amigos2.jpg", "amigos3.jpg"]
+        
+        var equalizer = {
+            eq1: 0,
+            eq2: 30,
+            eq3: 60
+        };
+        
+        var volumeSliders = {
+            s1: 0,
+            s2: 30,
+            s3: 60,
+            s4: 80,
+            s5: 100
+        };
+		function create_pic(pic){
+			gallery.day[1].photos.push({
+				image:pic,
+				id:maxId	
+			});
+			maxId++;
+		}
+		function delete_pic_by_id(id){
+			for(i = 0; i < gallery.day.length; i++){
+				for(j = 0; j<gallery.day[i].photos.length; j++){
+					if(gallery.day[i].photos[j].id == id )
+						gallery.day[i].photos.splice(j,1);
+				}
+			}
+		}
+
+		function get_pic_by_id(id){
+			for(i = 0; i < gallery.day.length; i++){
+				for(j = 0; j<gallery.day[i].photos.length; j++){
+					if(gallery.day[i].photos[j].id == id )
+						return gallery.day[i].photos[j].image;
+
+				}
+			}
+		}
+		function get_day_by_id(id){
+			for(i = 0; i < gallery.day.length; i++){
+				for(j = 0; j<gallery.day[i].photos.length; j++){
+					if(gallery.day[i].photos[j].id == id )
+						return i;
+				}
+			}
+		}
+    	function getPPI(){
+			 // create an empty element
+			 var div = document.createElement("div");
+			 // give it an absolute size of one inch
+			 div.style.width="1in";
+			 // append it to the body
+			 var body = document.getElementsByTagName("body")[0];
+			 body.appendChild(div);
+			 // read the computed width
+			 var ppi = document.defaultView.getComputedStyle(div, null).getPropertyValue('width');
+			 // remove it again
+			 body.removeChild(div);
+			 // and return the value
+			 return parseFloat(ppi);
+		}
+
+		function down(){
+			$('#main-container').animate({
+        		'margin-top': 0 + 'px'
+    		});
+		}
+		function up(){
+			$('#main-container').animate({
+        		'margin-top': '-' + offset*0.87 + 'px'
+    		});
+		}
+        function add_backtracker(page,sucess_function){
+            if(backtracker.length > 0){
+                var t = backtracker.pop();
+                if( currentPage.page != t.page ){
+                    backtracker.push(t);
+                    backtracker.push(currentPage);
+                }else{
+                    backtracker.push(t);
+                }
+        }else{
+            backtracker.push(currentPage);
+        }
+        }
+        function load_page(page,track,sucess_function){
+            if(track){
+                add_backtracker(page,sucess_function);
+            }
+            currentPage={
+                page: page,
+                load_function: sucess_function
+            };
+            $.ajax({
+                type: "GET",
+                url: page,
+                dataType: "html",
+                success: function(html){
+                        $("#replace-screen").html(html);
+                        var a = $(".end-screen").position();
+                        $(".end-screen").height(offset);
+                        sucess_function();
+                },
+                        error: function(x1,x2,x3){
+                }
+            });
+        }
+ 
+        function back(){
+            if(backtracker.length>0){
+                var temp = backtracker.pop();
+                if(temp.load_function)
+                        load_page(temp.page,false,temp.load_function);
+                else
+                        load_page(temp.page,false);
+            }else{
+            }
+
+        }
+
+        function default_background(){
+        	currentBackground.pic = "pic1c.jpg";
+        }
+       	function load_background(bg, zoom){
+       		set_background(bg,zoom);
+       		reload_background();
+       	}
+
+       	function set_background(bg,zoom){
+       		currentBackground.pic = bg;
+       		currentBackground.zoom = zoom;
+       	}
+
+       	function reload_background(){
+       		$(".background-image").css("backgroundImage","url(image/"+currentBackground.pic+")");
+       	}
+
+		function load_gallery(){
+			var content;
+			content_h= '';
+			content_v = '';
+			for (i = 0; i < gallery.day.length; i++) {
+				if(gallery.day[i].photos.length > 0 ){
+						content_h += '<div style="display:inline" class="horizontal-img"><img class="horizontal-pic" src="image/'+gallery.day[i].photos[0].image+'" data-img="'+gallery.day[i].photos[0].id+'"></div>';
+					}
+			}
+			$("#horizontal-fill").html(content_h);
+			$("#vertical-fill").html(content_v);
+			$("#vertical-slider-container").toggle();
+			var sum=0;
+			$('.horizontal-img').each( function(){ sum += $(this).width(); });
+			$('#horizontal-handle').width( sum );
+			new Dragdealer('horizontal-slider-container',{
+				steps: 2,
+				requestAnimationFrame:true
+			});
+			$(".horizontal-pic").mousedown(function(){
+				click=true;
+				setTimeout(function(){
+					click=false;
+				},150);
+			});
+			$(".horizontal-pic").mouseup(function(){
+				if(click){
+					var id = $(this).attr("data-img");
+					var d = get_day_by_id(id);
+					
+					add_backtracker("cam-gallery.html",function(){
+						$("#vertical-slider-container").toggle();
+						$("#horizontal-slider-container").toggle();
+					});
+
+					for(i = 0; i < gallery.day[d].photos.length; i++){
+						content_v +='';
+						content_v +='<div><img src="image/'+ gallery.day[d].photos[i].image +' " class="vertical-pic" data-img="'+gallery.day[d].photos[i].id+'"></div>';
+					}
+					$("#vertical-handle").html(content_v);
+					$("#horizontal-slider-container").toggle();
+					$("#vertical-slider-container").toggle();
+					new Dragdealer('vertical-slider-container',{
+						horizontal:false,
+						vertical:true
+					});
+
+					$(".vertical-pic").mousedown(function(){
+						click=true;
+						setTimeout(function(){
+							click=false;
+						},150);
+					});
+					$(".vertical-pic").mouseup(function(){
+						if(click){
+							currentPic = $(this).attr("data-img");
+							load_background(get_pic_by_id(currentPic,false));
+							load_page("cam-after-photo.html",true,function(){
+								reload_background();
+							});
+						}
+					});
+				}
+			});
+		}
+        
+        function load_friends(){
+            var content_friends;
+			for (i = 0; i < friends.length; i++) {
+				content_friends +='<div style="display:inline" ><img src=image/' + friends[i] + ' style="width:304px;height:200px"></div>';
+            }
+            $("#friends-vertical-handle").html(content_friends);
+            new Dragdealer('images-container',{
+				steps: 2,
+				requestAnimationFrame:true
+			});
+        };
+        <!-- functions clicks -->
+		function bind_menu_buttons(){
+
+			$("#btn-drone").click(function() {
+	            if(!lock){
+					load_page("cam-drone.html",true);
+					up();
+	            	activated = !activated;
+				}
+				return false;
+				
+			});
+	        $("#btn-galeria").click(function() { 
+	            if(!lock){
+					load_page("cam-gallery.html",true, function(){
+						load_gallery();
+						up();
+	            		activated = !activated;
+					},true);
+				}
+				return false;
+				
+			});
+
+	        $("#btn-camprox").click(function() {
+	            if(!lock){
+					load_page("cam-photo.html",true,function(){
+						default_background();
+						reload_background();
+						up();
+		            	activated = !activated;
+	            	});
+				}
+				return false;
+				
+			});
+			$("#btn-camfix").click(function() {
+	            if(!lock){
+					load_page("cam-list.html",true,function(){
+						$(".horizontal-picture-slider").slick({
+							centerMode: true,
+							centerPadding: "10px",
+							infinite:false,
+							dots:true
+						});
+
+						$(".vertical-picture-slider").toggle();
+						$("#vertical-arrow").toggle();
+
+						$('.horizontal-picture-slider').on('swipe',function(event,slick,direction){
+							lock = true;
+						});
+						
+						$('.horizontal-picture-slider').on('afterChange',function(event,slick,currentSlide){
+							lock = false;
+						});
+						up();
+	            		activated = !activated;
+					});
+					
+				}
+				return false;
+				
+			});
+            
+            $().click(function() { <!-- FIX -->
+	            if(!lock){
+					load_page("som-modo-manual.html",true,function(){
+                        var elemModoManual = document.querySelector('.js-som-modo-manual');
+                        var initCust = new Powerange(elemModoManual, { min: -100, max: 100, hideRange: true, callback: setVolume, klass: 'power-ranger', start: somModoManual });
+                        function setVolume(){
+                            somModoManual = elemModoManual.value;
+                            if (somModoManual>0){
+                                $("#dcbs").html("+" + String(somModoManual) + " db");
+                            } else {
+                                $("#dcbs").html(String(somModoManual) + " db");
+                            }
+                        };
+                    }) <!-- anterior: cam-drone.html -->
+					up();
+	            	activated = !activated;
+				}
+				return false;
+				
+			});
+            
+
+            
+            $("#btn-modos").click(function() { <!-- FIX -->
+	            if(!lock){
+					load_page("som-modos.html",true, function(){
+                        $('#modos-text').slick('slickGoTo', somActiveMode,true); 
+                        $("#choices").slick('slickGoTo', somActiveMode,true); 
+                    }) <!-- anterior: cam-drone.html -->
+					up();
+	            	activated = !activated;
+				}
+				return false;
+				
+			});
+            
+            $("#btn-equalizador").click(function() { <!-- FIX -->
+	            if(!lock){
+					load_page("som-equalizador.html",true,function(){
+                        var elemEqualizador1 = document.querySelector('.js-equalizador1');
+                        var initEqualizador1 = new Powerange(elemEqualizador1, {hideRange: true, callback: funcEq1, vertical: true, klass: 'power-ranger', start: equalizer.eq1 });
+                        var elemEqualizador2 = document.querySelector('.js-equalizador2');
+                        var initEqualizador2 = new Powerange(elemEqualizador2, {hideRange: true, callback: funcEq2, vertical: true, klass: 'power-ranger', start: equalizer.eq2 });
+                        var elemEqualizador3 = document.querySelector('.js-equalizador3');
+                        var initEqualizador3 = new Powerange(elemEqualizador3, {hideRange: true, callback: funcEq3, vertical: true, klass: 'power-ranger', start: equalizer.eq3 });
+                        
+                        function funcEq1(){
+                            equalizer.eq1 = elemEqualizador1.value;
+                        };
+                        function funcEq2(){
+                            equalizer.eq2 = elemEqualizador2.value;
+                        };
+                        function funcEq3(){
+                            equalizer.eq3 = elemEqualizador3.value;
+                        };
+                        
+                    }) <!-- anterior: cam-drone.html -->
+					up();
+	            	activated = !activated;
+				}
+				return false;
+				
+			});
+            
+        $("#btn-volume").click(function() { <!-- FIX -->
+            if(!lock){
+                load_page("som-volume.html",true,function(){
+                    var elemVol1 = document.querySelector('.js-vol1');
+                    var initVol1 = new Powerange(elemVol1, {hideRange: true, callback: funcS1, klass: 'power-ranger', start: volumeSliders.s1 });
+                    var elemVol2 = document.querySelector('.js-vol2');
+                    var initVol2 = new Powerange(elemVol2, {hideRange: true, callback: funcS2, klass: 'power-ranger', start: volumeSliders.s2 });
+                    var elemVol3 = document.querySelector('.js-vol3');
+                    var initVol3 = new Powerange(elemVol3, {hideRange: true, callback: funcS1, klass: 'power-ranger', start: volumeSliders.s3 });
+                    var elemVol4 = document.querySelector('.js-vol4');
+                    var initVol4 = new Powerange(elemVol4, {hideRange: true, callback: funcS2, klass: 'power-ranger', start: volumeSliders.s4 });
+
+
+                    function funcS1(){
+                        volumeSliders.s1 = elemVol1.value;
+                    };
+                    function funcS2(){
+                        volumeSliders.s2 = elemVol2.value;
+                    };
+                    
+                    new Dragdealer('sliders-volume',{
+						horizontal:false,
+						vertical:true,
+                        y:0.5
+					});
+
+                }) <!-- anterior: cam-drone.html -->
+                up();
+                activated = !activated;
+            }
+            return false;
+
+        });
+            
+		}
+		$("#button-main").click(function() {
+			if(!lock){
+				activated = !activated;
+				if(activated){
+					down();
+				}
+				else{
+					up();
+				}
+			}
+			return false;
+		});
+
+		$("#button-back").click(function() {
+			if(!lock){
+				back();
+			}
+			return false;
+		});
+		$(document).ready(function(){
+
+			$(".screen").width(getPPI()*1.28*2.35);
+			$(".screen").height(getPPI()*1.28*2.35);
+			$(".screen-fit").width(getPPI()*1.28*2.35);
+			$(".screen-fit").height(getPPI()*1.28*2.36);
+			$(".menu-fit").width(getPPI()*1.28*2.35);
+			$(".menu-fit").height(getPPI()*1.28*2.36*0.87)
+            currentBackground ={
+            	pic: "pic1c.jpg",
+            	zoom: false
+            };
+			currentPage={
+				page: "cam-main-menu.html"
+			};
+			backtracker.push(currentPage);
+            load_page("cam-main-menu.html",false);
+            
+			//down();
+            //activated = !activated;
+			
+			$("#main-container").css("margin-top",offset*0.87*(-1));
+
+			$('.slick-menu-text').slick({
+				slidesToShow: 1,
+				dots:true
+			});
+			$('.slick-dots').css("padding-left","0px");
+			$('.slick-menu').slick({
+			  	slidesToShow: 1,
+			  	slidesToScroll:1
+			});
+			$('.slick-menu').on('swipe',function(event,slick,direction){
+				lock = true;
+				if(direction == "right"){
+					$(".slick-menu-text").slick("slickPrev");
+				}else{
+					$(".slick-menu-text").slick("slickNext");
+				}
+			});
+			$('.slick-menu').on('afterChange',function(event,slick,currentSlide){
+				lock = false;
+			});
+			$('.slick-menu-text').on('swipe',function(event,slick,direction){
+				if(direction == "right"){
+					$(".slick-menu").slick("slickPrev");
+				}else{
+					$(".slick-menu").slick("slickNext");
+				}
+			});
+			bind_menu_buttons();
+		})
+
+	</script>
+
+    
+</body>
+</html>

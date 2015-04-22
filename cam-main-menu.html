@@ -82,26 +82,18 @@
             return false;
         });
         
+        $("#btn-friends").click(function() {
+            if(!lock){
+                load_page("amigos.html",true, function(){
+                    load_friends();
+                    up();
+                    activated = !activated;
+                },true);
+            }
+            return false;
+				
+        });
         
-        $("#btn-2").click(function() {
-            up();
-            activated = !activated;
-            if(!lock){
-                load_page("cam-share-cancel.html",true,function(){
-                    reload_background();
-                });
-            }
-            return false;
-        });
-        $("#btn-3").click(function() {
-            up();
-            activated = !activated;
-            if(!lock){
-                load_page("cam-share-cancel.html",true,function(){
-                    reload_background();
-                });
-            }
-            return false;
-        });
+        
 
 	</script>

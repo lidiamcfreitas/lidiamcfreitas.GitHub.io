@@ -67,15 +67,12 @@
         });
         $('#modos-text').on('swipe',function(event,slick,direction){
             lock = true;
-            if(direction == "right"){
-                $("#choices").slick("slickPrev");
-            }else{
-                $("#choices").slick("slickNext");
-            }
+
             somActiveMode = $('#modos-text').slick('slickCurrentSlide');
         });
         $('#modos-text').on('afterChange',function(event,slick,currentSlide){
 				lock = false;
+                $("#choices").slick("slickGoTo", somActiveMode, true);
 			});
         $("#d-manual").click(function() {
             if(!lock){
@@ -105,11 +102,7 @@
                     var initCust = new Powerange(elemModoConstante, { min: 0, max: 100, callback: setVolumeConst, klass: 'power-ranger', start: somModoConstante });
                     function setVolumeConst(){
                         somModoConstante = elemModoConstante.value;
-                        if (somModoManual>0){
-                            $("#dcbs").html("+" + String(somModoConstante) + " db");
-                        } else {
-                            $("#dcbs").html(String(somModoConstante) + " db");
-                        }
+                        $("#dcbs-const").html(String(somModoConstante));
                     };
                 }) 
                 up();
