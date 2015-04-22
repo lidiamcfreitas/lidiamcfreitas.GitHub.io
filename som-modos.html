@@ -1,0 +1,133 @@
+<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+    <div class="unit-70">
+        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Modos</h3></span>
+    </div>
+    <div class="units-30">
+        <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+    </div>
+</div>
+
+<div>
+    <span><h2 id="text-active" class="text-centered" style="padding-top:5px;color:#807f7f"> Modo Activo  </h2></span>
+</div>
+
+<div id="modos-text" class="units-row text-centered transparent-grey">
+    <span><h2 id="text-nenhum" style="padding-top:5px">&lt Nenhum &gt </h2></span>
+    <span><h2 id="text-manual" style="padding-top:5px"> &lt Manual &gt</h2></span>
+    <span><h2 id="text-constante" style="padding-top:5px">&lt Constante &gt </h2></span>
+    <span><h2 id="text-posicao" style="padding-top:5px">&lt Posição &gt </h2></span>
+</div>
+
+<div id="choices" style="margin-top:-25px">
+    <div class="units-row units-split end-screen" style="padding-top:80px">
+        <div id="d-nenhum" class="unit-50 btn btn-black" disabled>
+            <i class="fa fa-cogs fa-2x"></i>
+        </div>
+        <div id="h-constante" class="unit-50 btn btn-blue">
+            <i class="fa fa-info fa-2x"></i>
+        </div>
+    </div>
+    
+    <div class="units-row units-split end-screen" style="padding-top:80px">
+        <div id="d-manual" class="options unit-50 btn btn-black">
+            <i class="fa fa-cogs fa-2x"></i>
+        </div>
+        <div id="h-constante" class="unit-50 btn btn-blue">
+            <i class="fa fa-info fa-2x"></i>
+        </div>
+    </div>
+    
+    <div class="units-row units-split end-screen" style="padding-top:80px">
+        <div id="d-constante" class="options unit-50 btn btn-black">
+            <i class="fa fa-cogs fa-2x"></i>
+        </div>
+        <div id="h-constante"class="unit-50 btn btn-blue">
+            <i class="fa fa-info fa-2x"></i>
+        </div>
+    </div>
+    
+    <div class="units-row units-split end-screen" style="padding-top:80px">
+        <div id="d-posicao" class="options unit-50 btn btn-black">
+            <i class="fa fa-cogs fa-2x"></i>
+        </div>
+        <div id="h-posicao"class="unit-50 btn btn-blue">
+            <i class="fa fa-info fa-2x"></i>
+        </div>
+    </div>
+</div>
+
+    <script>        
+        $('#modos-text').slick({
+            slidesToShow: 1
+        });
+        $('#choices').slick({
+            slidesToShow: 1,
+            swipe: false,
+            asNavFor: '#modos-text'
+        });
+        $('#modos-text').on('swipe',function(event,slick,direction){
+            lock = true;
+            if(direction == "right"){
+                $("#choices").slick("slickPrev");
+            }else{
+                $("#choices").slick("slickNext");
+            }
+            somActiveMode = $('#modos-text').slick('slickCurrentSlide');
+        });
+        $('#modos-text').on('afterChange',function(event,slick,currentSlide){
+				lock = false;
+			});
+        $("#d-manual").click(function() {
+            if(!lock){
+                load_page("som-modo-manual.html",true,function(){
+                    var elemModoManual = document.querySelector('.js-som-modo-manual');
+                    var initCust = new Powerange(elemModoManual, { min: -100, max: 100, hideRange: true, callback: setVolume, klass: 'power-ranger', start: somModoManual });
+                    function setVolume(){
+                        somModoManual = elemModoManual.value;
+                        if (somModoManual>0){
+                            $("#dcbs").html("+" + String(somModoManual) + " db");
+                        } else {
+                            $("#dcbs").html(String(somModoManual) + " db");
+                        }
+                    };
+                }) 
+                up();
+                activated = !activated;
+            }
+            return false;
+				
+        });
+
+        $("#d-constante").click(function() {
+            if(!lock){
+                load_page("som-modo-constante.html",true,function(){
+                    var elemModoConstante = document.querySelector('.js-som-modo-constante');
+                    var initCust = new Powerange(elemModoConstante, { min: 0, max: 100, callback: setVolumeConst, klass: 'power-ranger', start: somModoConstante });
+                    function setVolumeConst(){
+                        somModoConstante = elemModoConstante.value;
+                        if (somModoManual>0){
+                            $("#dcbs").html("+" + String(somModoConstante) + " db");
+                        } else {
+                            $("#dcbs").html(String(somModoConstante) + " db");
+                        }
+                    };
+                }) 
+                up();
+                activated = !activated;
+            }
+            return false;
+				
+        });
+        
+                $("#d-posicao").click(function() {
+            if(!lock){
+                load_page("som-posicao.html",true,function(){
+
+                })
+                up();
+                activated = !activated;
+            }
+            return false;
+				
+        });
+	</script>

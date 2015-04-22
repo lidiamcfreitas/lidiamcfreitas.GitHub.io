@@ -1,0 +1,44 @@
+<div style='background-image: url("image/pic1c.jpg");border:0px;position:relative ' class="screen-fit background-image">
+
+    <div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+        <div class="unit-70">
+            <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Partilha</h3>             </span>
+        </div>
+        <div class="units-30">
+            <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+        </div>
+    </div>
+    
+        <div id="btn-share" style="padding-top:175px" class="units-row units-split end-screen">
+            <div class="unit-50 btn btn-green">
+                <i class="fa fa-share-alt fa-2x"></i>
+            </div>
+            <div id="btn-trash" class="unit-50 btn btn-red">
+                <i class="fa fa-trash fa-2x"></i>
+            </div>
+        </div>
+</div>
+</div>
+    <script>
+        $("#btn-share").click(function() {
+			up();
+            activated = !activated;
+            if(!lock){
+				load_page("cam-share.html",true);
+			}
+			return false;
+			
+		});
+        
+        $("#btn-trash").click(function() {
+            up();
+            activated = !activated;
+            if(!lock){
+				load_page("cam-delete.html",true,function(){
+                    reload_background();
+                });
+			}
+			return false;
+		});
+
+	</script>
