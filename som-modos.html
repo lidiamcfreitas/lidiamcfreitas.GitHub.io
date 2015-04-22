@@ -120,10 +120,22 @@
         });
         
                 $("#d-posicao").click(function() {
+                    alert("clicked");
             if(!lock){
+                alert("clicked2");
                 load_page("som-posicao.html",true,function(){
-
-                })
+                    var $draggable = $('.draggable').draggabilly({
+                        containment: '.container'
+                    });
+                    var draggie = $draggable.data('draggabilly');
+                    $draggable.on( 'dragMove', function() {
+                    console.log( 'dragMove', draggie.position.x, draggie.position.y );
+                    });
+                    $draggable.on( 'pointerUp', function( event, pointer ) {
+                        draggie = $draggable.data('draggabilly');
+                        console.log( 'pointerUp', draggie.position.x, draggie.position.y );
+                    })
+                });
                 up();
                 activated = !activated;
             }
