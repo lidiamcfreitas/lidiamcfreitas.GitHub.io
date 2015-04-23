@@ -58,6 +58,8 @@
 		var somModoManual = 0;
         var somModoConstante = 50;
         var somActiveMode = 0;
+        var positionXY = ["50px","50px"];
+        var helpPressed = false;
 		var maxId = 5;
 		
 		var slideIndex = 0;
@@ -84,6 +86,8 @@
 			} 
 			]
 		};
+        
+        var friends = ["amigos1.jpg", "amigos2.jpg", "amigos3.jpg"]
         
         var equalizer = {
             eq1: 0,
@@ -287,6 +291,18 @@
 				}
 			});
 		}
+        
+        function load_friends(){
+            var content_friends;
+			for (i = 0; i < friends.length; i++) {
+				content_friends +='<div style="display:inline" ><img src=image/' + friends[i] + ' style="width:304px;height:200px"></div>';
+            }
+            $("#friends-vertical-handle").html(content_friends);
+            new Dragdealer('images-container',{
+				steps: 2,
+				requestAnimationFrame:true
+			});
+        };
         <!-- functions clicks -->
 		function bind_menu_buttons(){
 
@@ -365,7 +381,7 @@
                                 $("#dcbs").html(String(somModoManual) + " db");
                             }
                         };
-                    }) <!-- anterior: cam-drone.html -->
+                    }); 
 					up();
 	            	activated = !activated;
 				}
@@ -378,9 +394,9 @@
             $("#btn-modos").click(function() { <!-- FIX -->
 	            if(!lock){
 					load_page("som-modos.html",true, function(){
-                        $('#modos-text').slick('slickGoTo', somActiveMode,false); 
-                        $("#choices").slick('slickGoTo', somActiveMode,false); 
-                    }) <!-- anterior: cam-drone.html -->
+                        $('#modos-text').slick('slickGoTo', somActiveMode,true); 
+                        $("#choices").slick('slickGoTo', somActiveMode,true); 
+                    });
 					up();
 	            	activated = !activated;
 				}
@@ -408,7 +424,7 @@
                             equalizer.eq3 = elemEqualizador3.value;
                         };
                         
-                    }) <!-- anterior: cam-drone.html -->
+                    });
 					up();
 	            	activated = !activated;
 				}
@@ -442,7 +458,7 @@
                         y:0.5
 					});
 
-                }) <!-- anterior: cam-drone.html -->
+                });
                 up();
                 activated = !activated;
             }

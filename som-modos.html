@@ -1,6 +1,6 @@
 <div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
     <div class="unit-70">
-        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Modos</h3></span>
+        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa  fa-volume-up"></i> &nbsp Som</h3></span>
     </div>
     <div class="units-30">
         <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
@@ -17,13 +17,15 @@
     <span><h2 id="text-constante" style="padding-top:5px">&lt Constante &gt </h2></span>
     <span><h2 id="text-posicao" style="padding-top:5px">&lt Posição &gt </h2></span>
 </div>
-
+<div   style="float:left;margin-left:0px;margin-right:0pxmargin-top:5px;color:white;width=100%;background-color:#2575ed;">
+    <h4 id="info-mode" style="color:white"></h4>
+</div>
 <div id="choices" style="margin-top:-25px">
     <div class="units-row units-split end-screen" style="padding-top:80px">
         <div id="d-nenhum" class="unit-50 btn btn-black" disabled>
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-constante" class="unit-50 btn btn-blue">
+        <div id="h-nenhum" class="unit-50 btn btn-blue" disabled>
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -32,7 +34,7 @@
         <div id="d-manual" class="options unit-50 btn btn-black">
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-constante" class="unit-50 btn btn-blue">
+        <div id="h-manual" class="unit-50 btn btn-blue">
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -72,8 +74,13 @@
         });
         $('#modos-text').on('afterChange',function(event,slick,currentSlide){
 				lock = false;
+                if(helpPressed){
+                    $('#info-mode').html('');
+                    helpPressed = !helpPressed;
+                }
                 $("#choices").slick("slickGoTo", somActiveMode, true);
-			});
+        });
+        
         $("#d-manual").click(function() {
             if(!lock){
                 load_page("som-modo-manual.html",true,function(){
@@ -112,19 +119,20 @@
 				
         });
         
-                $("#d-posicao").click(function() {
+        $("#d-posicao").click(function() {
             if(!lock){
                 load_page("som-posicao.html",true,function(){
-                    var $draggable = $('.draggable').draggabilly({
+                    var $draggable = $('#position').draggabilly({
                         containment: '.container'
                     });
                     var draggie = $draggable.data('draggabilly');
-                    $draggable.on( 'dragMove', function() {
-                    console.log( 'dragMove', draggie.position.x, draggie.position.y );
-                    });
+                    $('#position').css({"top":positionXY[0], "left":positionXY[1]});
+
                     $draggable.on( 'pointerUp', function( event, pointer ) {
-                        draggie = $draggable.data('draggabilly');
-                        console.log( 'pointerUp', draggie.position.x, draggie.position.y );
+                        setTimeout(function() {
+                            positionXY[0] = $("#position").css("top");
+                            positionXY[1] = $("#position").css("left");
+                        },500);
                     })
                 });
                 up();
@@ -133,4 +141,32 @@
             return false;
 				
         });
+        
+        $("#h-manual").click(function() {
+           if(helpPressed){
+                $('#info-mode').html('');
+           } else {
+                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo manual laalal lalala lalalala lala');   
+           }
+            helpPressed = !helpPressed;
+        });
+        
+        $("#h-constante").click(function() {
+           if(helpPressed){
+                $('#info-mode').html('');
+           } else {
+                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo constante');   
+           }
+            helpPressed = !helpPressed;
+        });
+        
+        $("#h-posicao").click(function() {
+           if(helpPressed){
+                $('#info-mode').html('');
+           } else {
+                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo posição');   
+           }
+            helpPressed = !helpPressed;
+        });
+        
 	</script>
