@@ -1,5 +1,5 @@
 body{
-    background-color:#575353;   
+    background-color:#575353; 
 }
 
 .topbox{
@@ -8,7 +8,6 @@ body{
     /*background:#DADADA;
     border-style:solid;
     border-width:4px;*/
-    zoom: 0.5;
     margin-top:10px;
     width:400px
 }
@@ -28,7 +27,6 @@ body{
     background:#DADADA;
     border-style:solid;
     border-width:0px;
-    zoom: 0.5;
 }
 
 .topboxGal button{
@@ -49,9 +47,9 @@ body{
     background:#DADADA;
     border-style:solid;
     border-width:4px; 
-    zoom:0.5;
     margin-top:10px;
     overflow:hidden;
+    -moz-transform:scale(0.5);
 }
 
 #main-screen{
@@ -79,7 +77,7 @@ body{
 }
 
 #replace-screen{
-    background:#DADADA;
+    background:#dadada;
     border:0px;
 }
 
@@ -146,6 +144,140 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1079a3', end
     width:280px;height:240px;padding-left:20px;padding-right:10px;padding-bottom:5px;padding-top:0px
 }
 
-.vertical-slider{
-    width:280px;height:15px;padding-left:20px;padding-right:10px;padding-bottom:5px;padding-top:0px
+.map-pic {
+    position:absolute;height:40px;width:40px;position:absolute;z-index:3
+}
+
+.user-map-pic {
+    position:absolute;height:40px;width:40px;position:absolute;z-index:3
+}
+
+.horizontal-loc-pic{
+width:265px;height:265px;padding-left:10px;padding-right:5px;padding-bottom:20px;margin-top:-30px;
+}
+.horizontal-sel-pic{
+width:265px;height:265px;padding-left:10px;padding-right:5px;padding-bottom:20px;margin-top:-30px;
+}
+.horizontal-loc-img{
+}
+
+.new-slider {
+  background: #333344;
+}
+.new-slider .dragdealer {
+overflow: hidden;
+}
+.new-slider .handle {
+  width: 200%;
+}
+.new-slider .slide-text {
+left: 50%;
+width: 50%;
+color: #9999aa;
+}
+
+.slide-to-unlock {
+  position: relative;
+  width: 400px;
+  height: 80px;
+}
+.slide-to-unlock .dragdealer {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+border-radius: 0;
+background: none;
+height: auto;
+}
+.slide-to-unlock .handle {
+  height: 100%;
+  border-radius: 0;
+}
+.slide-to-unlock .disabled {
+  background: none;
+}
+.slide-to-unlock .slide-text {
+  position: absolute;
+  top: 0;
+  height: 80px;
+  font-size: 30px;
+  line-height: 80px;
+  text-align: center;
+}
+
+.old-slider {
+  border-radius: 16px;
+  background: #222;
+  background-image: -webkit-linear-gradient(top, #111 0%, #333 100%);
+  background-image: -moz-linear-gradient(top, #111 0%, #333 100%);
+  background-image: -o-linear-gradient(top, #111 0%, #333 100%);
+  background-image: linear-gradient(to bottom, #111 0%, #333 100%);
+}
+.old-slider .dragdealer {
+top: 5px;
+bottom: 5px;
+left: 5px;
+right: 5px;
+}
+.old-slider .slide-text {
+  right: 0;
+  width: 290px;
+  height: 70px;
+  color: #999;
+  line-height: 70px;
+  cursor: default;
+}
+.old-slider .handle {
+  width: 100px;
+  border-radius: 12px;
+  background: #ccc;
+  background-image: -webkit-linear-gradient(top, #f1f1f1 0%, #aaa 100%);
+  background-image: -moz-linear-gradient(top, #f1f1f1 0%, #aaa 100%);
+  background-image: -o-linear-gradient(top, #f1f1f1 0%, #aaa 100%);
+  background-image: linear-gradient(to bottom, #f1f1f1 0%, #aaa 100%);
+}
+
+.cursor-move {
+    cursor: move;
+}
+
+.cursor-swipe {
+    cursor: url('../img/swipe-cursor-both.png') 15 0, ew-resize;
+}
+
+.cursor-ptr {
+    cursor: pointer;
+}
+
+.cursor-help {
+    cursor: help;
+}
+
+.icon-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+.icon-stack-1x,
+.icon-stack-2x,
+.icon-stack-3x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+.icon-stack-1x {
+  line-height: inherit;
+}
+.icon-stack-2x {
+    top:0.15em;
+  font-size: 1.5em;
+}
+.icon-stack-3x {
+  font-size: 2em;
 }

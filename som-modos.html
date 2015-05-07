@@ -3,7 +3,7 @@
         <span><h3 style="color:#FFFFFF">&nbsp <i class="fa  fa-volume-up"></i> &nbsp Som</h3></span>
     </div>
     <div class="units-30">
-        <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+        <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
     </div>
 </div>
 
@@ -11,21 +11,21 @@
     <span><h2 id="text-active" class="text-centered" style="padding-top:5px;color:#807f7f"> Modo Activo  </h2></span>
 </div>
 
-<div id="modos-text" class="units-row text-centered transparent-grey">
-    <span><h2 id="text-nenhum" style="padding-top:5px">&lt Nenhum &gt </h2></span>
-    <span><h2 id="text-manual" style="padding-top:5px"> &lt Manual &gt</h2></span>
-    <span><h2 id="text-constante" style="padding-top:5px">&lt Constante &gt </h2></span>
-    <span><h2 id="text-posicao" style="padding-top:5px">&lt Posição &gt </h2></span>
+<div id="modos-text" class="units-row text-centered transparent-grey cursor-swipe">
+    <span><h2 id="text-nenhum" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Nenhum <span class="btn-arrow-right">&gt</span> </h2></span>
+    <span><h2 id="text-manual" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Manual <span class="btn-arrow-right">&gt</span></h2></span>
+    <span><h2 id="text-constante" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Constante <span class="btn-arrow-right">&gt</span> </h2></span>
+    <span><h2 id="text-posicao" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Posição <span class="btn-arrow-right">&gt</span> </h2></span>
 </div>
-<div   style="float:left;margin-left:0px;margin-right:0pxmargin-top:5px;color:white;width=100%;background-color:#2575ed;">
-    <h4 id="info-mode" style="color:white"></h4>
+<div   style="float:left;margin-left:0px;margin-right:0px;margin-top:-35px;color:white;width=100%;background-color:#2575ed;">
+    <h2 id="info-mode" style="color:white"></h2>
 </div>
 <div id="choices" style="margin-top:-25px">
     <div class="units-row units-split end-screen" style="padding-top:80px">
         <div id="d-nenhum" class="unit-50 btn btn-black" disabled>
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-nenhum" class="unit-50 btn btn-blue" disabled>
+        <div id="h-nenhum" class="unit-50 btn btn-blue cursor-help" disabled>
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -34,7 +34,7 @@
         <div id="d-manual" class="options unit-50 btn btn-black">
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-manual" class="unit-50 btn btn-blue">
+        <div id="h-manual" class="unit-50 btn btn-blue cursor-help">
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div id="d-constante" class="options unit-50 btn btn-black">
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-constante"class="unit-50 btn btn-blue">
+        <div id="h-constante"class="unit-50 btn btn-blue cursor-help">
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -52,7 +52,7 @@
         <div id="d-posicao" class="options unit-50 btn btn-black">
             <i class="fa fa-cogs fa-2x"></i>
         </div>
-        <div id="h-posicao"class="unit-50 btn btn-blue">
+        <div id="h-posicao"class="unit-50 btn btn-blue cursor-help">
             <i class="fa fa-info fa-2x"></i>
         </div>
     </div>
@@ -67,6 +67,27 @@
             swipe: false,
             asNavFor: '#modos-text'
         });
+        
+        $(".btn-arrow-left").click(function(){
+            $('#modos-text').slick('slickPrev');
+            if(helpPressed){
+                $('#info-mode').html('');
+                helpPressed = !helpPressed;
+            }
+            somActiveMode = $('#modos-text').slick('slickCurrentSlide');
+            $("#choices").slick("slickGoTo", somActiveMode, true);
+        });
+        
+        $(".btn-arrow-right").click(function(){
+            $('#modos-text').slick('slickNext');
+            if(helpPressed){
+                $('#info-mode').html('');
+                helpPressed = !helpPressed;
+            }
+            somActiveMode = $('#modos-text').slick('slickCurrentSlide');
+            $("#choices").slick("slickGoTo", somActiveMode, true);
+        });
+        
         $('#modos-text').on('swipe',function(event,slick,direction){
             lock = true;
 
@@ -146,7 +167,7 @@
            if(helpPressed){
                 $('#info-mode').html('');
            } else {
-                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo manual');   
+                $('#info-mode').html('Permite aumentar ou diminuir o volume em X decibeis relativo ao real.');   
            }
             helpPressed = !helpPressed;
         });
@@ -155,7 +176,7 @@
            if(helpPressed){
                 $('#info-mode').html('');
            } else {
-                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo constante');   
+                $('#info-mode').html('Permite escolher um volume, independente do volume real.');   
            }
             helpPressed = !helpPressed;
         });
@@ -164,7 +185,7 @@
            if(helpPressed){
                 $('#info-mode').html('');
            } else {
-                $('#info-mode').html('Lorem ipsum cenas. Este e o texto de ajuda ao modo posição');   
+                $('#info-mode').html('Permite escolher o volume como se estivesse numa posição relativa ao palco.');   
            }
             helpPressed = !helpPressed;
         });

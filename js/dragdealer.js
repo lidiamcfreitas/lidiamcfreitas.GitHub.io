@@ -537,10 +537,13 @@ Dragdealer.prototype = {
     this.dragging = true;
     this.setWrapperOffset();
 
+    //console.log("Cursor :" + Cursor.x + " ; pos : " + Position.get(this.handle)[0]);
     this.offset.mouse = [
       Cursor.x - Position.get(this.handle)[0],
       Cursor.y - Position.get(this.handle)[1]
     ];
+    
+    
     if (!this.wrapper.className.match(this.options.activeClass)) {
       this.wrapper.className += ' ' + this.options.activeClass;
     }
@@ -607,11 +610,16 @@ Dragdealer.prototype = {
     }
     if (this.dragging) {
       var prevTarget = this.groupClone(this.value.target);
-
+      
+      
       var offset = [
         Cursor.x - this.offset.wrapper[0] - this.offset.mouse[0],
         Cursor.y - this.offset.wrapper[1] - this.offset.mouse[1]
+
       ];
+        
+      offset[0] *=2;
+      console.log(offset)
       this.setTargetValueByOffset(offset, this.options.loose);
 
       this.change = [
@@ -653,6 +661,7 @@ Dragdealer.prototype = {
       );
     }
     if (!this.groupCompare(this.offset.current, this.offset.prev)) {
+      //console.log("changing to " + this.offset.current + " from " + this.offset.prev);
       this.renderHandlePosition();
       this.groupCopy(this.offset.prev, this.offset.current);
     }

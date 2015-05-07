@@ -3,7 +3,7 @@
         <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Menu</h3></span>
     </div>
     <div class="units-30">
-        <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+        <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
     </div>
 </div>
 <div class="units-row units-split">
@@ -25,13 +25,13 @@
                 $(".slick-menu-text").slick("slickRemove",slideIndex-1);
                 slideIndex--;
             }
-
+            lockMenu = false;
             //<img src="image/drone-white.png" style="margin:auto;width:31%;height:31%;margin-top:3px">
     		$(".slick-menu").slick('slickAdd','<div id="btn-camprox" class="text-centered"><i class="fa fa-camera fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Câmera mais próxima</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-camfix" class="text-centered "><i class="fa fa-camera-retro fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Câmeras Fixas</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-drone" class="text-centered"><i class="fa fa-android fa-5x"></i></div>');
+            $(".slick-menu").slick('slickAdd','<div id="btn-drone" class="text-centered"><i class="fa  fa-simplybuilt fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Drone</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-galeria" class="text-centered"><i class="fa fa-picture-o fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Galeria</h2></div>');
@@ -41,16 +41,39 @@
 			bind_menu_buttons();
 			return false;
 		});
+        $("#btn-nav").click(function() {
+            while(slideIndex > 0){
+                $(".slick-menu").slick("slickRemove",slideIndex-1);
+                $(".slick-menu-text").slick("slickRemove",slideIndex-1);
+                slideIndex--;
+            }
+            lockMenu = false;
+            $(".slick-menu").slick('slickAdd','<div id="btn-map" class="text-centered "><i class="fa fa-globe fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Mapa</h2></div>');
+            $(".slick-menu").slick('slickAdd','<div id="btn-fav" class="text-centered"><i class="fa fa-star fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Favoritos</h2></div>');
+            $(".slick-menu").slick('slickAdd','<div id="btn-loc" class="text-centered"><i class="fa fa-map-marker fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Locais</h2></div>');
+            $(".slick-menu").slick('slickAdd','<div id="btn-route" class="text-centered"><i class="fa fa-road fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Percurso</h2></div>');
+            slideIndex = 4;
+            down();
+            activated = !activated;
+            bind_menu_buttons();
+            return false;
+        });
+        
         $("#btn-sound").click(function() {
             while(slideIndex > 0){
                 $(".slick-menu").slick("slickRemove",slideIndex-1);
                 $(".slick-menu-text").slick("slickRemove",slideIndex-1);
                 slideIndex--;
             }
+            lockMenu = false;
             $(".slick-menu").slick('slickAdd','<div id="btn-modos" class="text-centered "><i class="fa fa-music fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Modos</h2></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Controlo Som</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-volume" class="text-centered"><i class="fa fa-volume-up fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Volume</h2></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Volume Individual</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-equalizador" class="text-centered"><i class="fa fa-microphone fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Equalizador</h2></div>');
             slideIndex = 3;
@@ -59,41 +82,15 @@
             bind_menu_buttons();
             return false;
         });
-        
-        
-        $("#btn-nav").click(function() {
-            while(slideIndex > 0){
-                $(".slick-menu").slick("slickRemove",slideIndex-1);
-                $(".slick-menu-text").slick("slickRemove",slideIndex-1);
-                slideIndex--;
-            }
-            $(".slick-menu").slick('slickAdd','<div id="btn-tenda" class="text-centered "><i class="fa fa-home fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Tenda</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-amigos" class="text-centered"><i class="fa fa-user fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Amigos</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-percurso" class="text-centered"><i class="fa fa-road fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Percurso</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-locais" class="text-centered"><i class="fa fa-map-marker fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Locais</h2></div>');
-            slideIndex = 4;
-            down();
+        $("#btn-3").click(function() {
+            up();
             activated = !activated;
-            bind_menu_buttons();
-            return false;
-        });
-        
-        $("#btn-friends").click(function() {
             if(!lock){
-                load_page("amigos.html",true, function(){
-                    load_friends();
-                    up();
-                    activated = !activated;
-                },true);
+                load_page("cam-share-cancel.html",true,function(){
+                    reload_background();
+                });
             }
             return false;
-				
         });
-        
-        
 
 	</script>

@@ -5,7 +5,7 @@
             <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Partilha</h3>             </span>
         </div>
         <div class="units-30">
-            <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+            <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
         </div>
     </div>
 
@@ -14,39 +14,34 @@
         </div>
     
         <div class="units-row units-split end-screen" style="padding-top:80px">
-            <div class="unit-50 btn btn-green">
+            <div class="unit-50 btn btn-green btn-photo-hide">
                 <i class="fa fa-check fa-2x"></i>
             </div>
-            <div class="unit-50 btn btn-red">
+            <div class="unit-50 btn btn-red btn-photo-hide">
                 <i class="fa fa-times fa-2x"></i>
+            </div>
+            <div class="unit-100 btn btn-green btn-photo-show" style="display:hidden">
+                <i class="fa fa-check fa-2x"></i>
             </div>
         </div>
 </div>
 </div>
     <script>
         $(".btn-red").click(function() {
-            $.ajax({
-                type: "GET",
-                url: "cam-share.html",
-                dataType: "html",
-                success: function(html){
-                    $("#replace-screen").html(html);
-                    var a = $(".end-screen").position();
-                    $(".end-screen").height(offset);
-                },
-                error: function(x1,x2,x3){
-                }
+            load_page("cam-share.html",false, function(){
+
             });
 		});
         
         $(".btn-green").click(function() {
             $("#text").html("Foto partilhada com sucesso");
-            $(".btn").hide();
-            setTimeout(function(){
+            $(".btn-photo-hide").hide();
+            $(".btn-photo-show").show();
+            $(".btn-photo-show").click(function() {
                 load_page("cam-after-photo.html",false, function(){
                     reload_background();
                 })
-            }, 2500);
+            });
 		});
 
 	</script>

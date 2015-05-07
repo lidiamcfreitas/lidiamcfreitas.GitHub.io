@@ -1,0 +1,43 @@
+<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+        <div class="unit-70">
+            <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Navegação</h3>             </span>
+        </div>
+        <div class="units-30">
+            <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
+        </div>
+    </div>
+
+        <div class="units-row text-centered transparent-grey">
+            <span><h2 id="text" style="padding-top:5px">Tem a certeza que quer parar a navegação?</h2></span>
+        </div>
+    
+        <div class="units-row units-split end-screen" style="padding-top:80px">
+            <div id="btn-pos" class="unit-50 btn btn-red">
+                <i class="fa fa-check fa-2x"></i>
+            </div>
+            <div id="btn-neg" class="unit-50 btn btn-green">
+                <i class="fa fa-times fa-2x"></i>
+            </div>
+        </div>
+</div>
+</div>
+<script>
+$("#btn-pos").click(function() {
+    load_page("nav-map.html",true,function(){
+        load_map();
+        up();
+        activated = !activated;
+    });
+    reset_backtracker();
+    add_menu_backtracker();
+});
+
+$("#btn-neg").click(function() {
+    load_page("nav-arrow.html", false, function(){
+        load_arrow_page();
+        reset_backtracker();
+        add_menu_backtracker();
+    });
+});
+
+</script>

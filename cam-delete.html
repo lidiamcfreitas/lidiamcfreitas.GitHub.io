@@ -5,7 +5,7 @@
             <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-trash fa-lg"></i> Apagar</h3>             </span>
         </div>
         <div class="units-30">
-            <span><h3 style="color:#FFFFFF"class="right">16:42&nbsp</h3></span>
+            <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
         </div>
     </div>
 
@@ -19,12 +19,15 @@
 	        </div>
     </div>
 
-    <div class="units-row units-split end-screen" style="padding-top:14px">
-        <div class="unit-50 btn btn-red" id="fucking-button">
+    <div class="units-row units-split end-screen" style="padding-top:20px">
+        <div class="unit-50 btn btn-red" id="btn-check">
             <i class="fa fa-check fa-2x"></i>
         </div>
         <div id="btn-cancel" class="unit-50 btn btn-green">
             <i class="fa fa-times fa-2x"></i>
+        </div>
+        <div class="unit-100 btn btn-green btn-delete-show" style="display:hidden">
+            <i class="fa fa-check fa-2x"></i>
         </div>
     </div>
 </div>
@@ -43,16 +46,21 @@
 			
 		});
         
-        $("#fucking-button").click(function() {
+        $("#btn-check").click(function() {
             $("#text").html("Foto apagada com sucesso");
             delete_pic_by_id(currentPic);
-            $(".btn").hide();
-            setTimeout(function(){
-                load_page("cam-photo.html",false, function(){
+            $("#btn-check").hide();
+            $("#btn-cancel").hide();
+            $(".btn-delete-show").show();
+            $(".btn-delete-show").click(function() {
+                load_page("cam-gallery.html",false, function(){
                     default_background();
                     reload_background();
+                    load_gallery();
+                    reset_backtracker();
+                    add_menu_backtracker();
                 })
-            }, 2500);
+            });
 		});
 
 	</script>
