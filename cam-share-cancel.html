@@ -9,15 +9,15 @@
         </div>
     </div>
 
-        <div class="units-row text-centered transparent-grey">
-            <span><h2 id="text" style="padding-top:5px">De certeza que quer partilhar a foto?</h2></span>
+        <div class="units-row units-split text-centered" style="background:rgba(255, 255, 255, 0.6);border-radius:10px;border: 2px solid rgba(0, 0, 0, 0.6);margin-left:10px;margin-right:10px">
+            <span><h2 id="text" style="padding-top:10px">De certeza que quer <br>partilhar a foto?</h2></span>
         </div>
     
-        <div class="units-row units-split end-screen" style="padding-top:80px">
-            <div class="unit-50 btn btn-green btn-photo-hide">
+        <div class="units-row units-split end-screen" style="padding-top:70px">
+            <div class="unit-50 btn btn-green btn-photo-hide" id="btn-accept">
                 <i class="fa fa-check fa-2x"></i>
             </div>
-            <div class="unit-50 btn btn-red btn-photo-hide">
+            <div class="unit-50 btn btn-red btn-photo-hide" id="btn-refuse">
                 <i class="fa fa-times fa-2x"></i>
             </div>
             <div class="unit-100 btn btn-green btn-photo-show" style="display:hidden">
@@ -27,19 +27,18 @@
 </div>
 </div>
     <script>
-        $(".btn-red").click(function() {
+        $("#btn-refuse").click(function() {
             load_page("cam-share.html",false, function(){
-
             });
 		});
         
-        $(".btn-green").click(function() {
+        $("#btn-accept").click(function() {
             $("#text").html("Foto partilhada com sucesso");
             $(".btn-photo-hide").hide();
             $(".btn-photo-show").show();
             $(".btn-photo-show").click(function() {
-                load_page("cam-after-photo.html",false, function(){
-                    reload_background();
+                load_page("cam-after-gallery.html",false, function(){
+                    reload_background(false);
                 })
             });
 		});

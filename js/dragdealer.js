@@ -536,8 +536,6 @@ Dragdealer.prototype = {
     }
     this.dragging = true;
     this.setWrapperOffset();
-
-    //console.log("Cursor :" + Cursor.x + " ; pos : " + Position.get(this.handle)[0]);
     this.offset.mouse = [
       Cursor.x - Position.get(this.handle)[0],
       Cursor.y - Position.get(this.handle)[1]
@@ -619,7 +617,7 @@ Dragdealer.prototype = {
       ];
         
       offset[0] *=2;
-      console.log(offset)
+      offset[1] *=2;
       this.setTargetValueByOffset(offset, this.options.loose);
 
       this.change = [
@@ -661,7 +659,7 @@ Dragdealer.prototype = {
       );
     }
     if (!this.groupCompare(this.offset.current, this.offset.prev)) {
-      //console.log("changing to " + this.offset.current + " from " + this.offset.prev);
+      
       this.renderHandlePosition();
       this.groupCopy(this.offset.prev, this.offset.current);
     }

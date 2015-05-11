@@ -27,7 +27,7 @@
             activated = !activated;
             if(!lock){
 				load_page("cam-share-cancel.html",true,function(){
-                    reload_background();
+                    reload_background(false);
                 });
 			}
 			return false;

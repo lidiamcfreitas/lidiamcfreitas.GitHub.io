@@ -8,7 +8,7 @@
 </div>
 <div class="units-row units-split">
 	<div class=" topboxGal unit-50">
-        <button id="btn-cam" class="btn btn-black btn-share"><i style="color:white" class="fa fa-camera fa-5x"></i></button>
+        <button id="btn-cam" class="btn btn-black btn-share"><i style="color:white;" class="fa fa-camera fa-5x"></i></button>
         <button id="btn-nav" class="btn btn-black btn-share"><i style="color:white" class="fa fa-location-arrow fa-5x"></i></button>
 		</div>
     <div style class=" topboxGal unit-50">
@@ -56,7 +56,9 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Locais</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-route" class="text-centered"><i class="fa fa-road fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Percurso</h2></div>');
-            slideIndex = 4;
+            $(".slick-menu").slick('slickAdd','<div id="btn-tent" class="text-centered"><i class="fa fa-home fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Tenda</h2></div>');
+            slideIndex = 5;
             down();
             activated = !activated;
             bind_menu_buttons();
@@ -71,7 +73,7 @@
             }
             lockMenu = false;
             $(".slick-menu").slick('slickAdd','<div id="btn-modos" class="text-centered "><i class="fa fa-music fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Controlo Som</h2></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Perfis de Som</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-volume" class="text-centered"><i class="fa fa-volume-up fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Volume Individual</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-equalizador" class="text-centered"><i class="fa fa-microphone fa-5x"></i></div>');
@@ -80,16 +82,6 @@
             down();
             activated = !activated;
             bind_menu_buttons();
-            return false;
-        });
-        $("#btn-3").click(function() {
-            up();
-            activated = !activated;
-            if(!lock){
-                load_page("cam-share-cancel.html",true,function(){
-                    reload_background();
-                });
-            }
             return false;
         });
 

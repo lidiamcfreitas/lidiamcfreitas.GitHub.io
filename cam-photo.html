@@ -59,20 +59,42 @@
 		    });
          
          $(".fa-plus-circle").click(function() {
-            //$("#background").css({"background-size": "1050px 600px", "background-position":"center"})
+             if(currentBackground.zoom == -1)
+                 currentBackground.zoom = 0;
+             else
+                 currentBackground.zoom = 1;
+            reload_background(true);
          });
          
         $(".fa-minus-circle").click(function() {
-            //$("#background").css({"background-size": "700px 400px", "background-position":"0 0"})
+            if(currentBackground.zoom == 1)
+                currentBackground.zoom = 0;
+            else
+                currentBackground.zoom = -1;
+            reload_background(true);
          });
          
         $("#btn-photo").click(function() {
             up();
             activated = !activated;
-            create_pic(currentBackground.pic);
+            var pic = "";
+            if(currentBackground.zoom == -1)
+                pic = currentBackground.pic + "-out.jpg";
+            else if(currentBackground.zoom == 1)
+                pic = currentBackground.pic + "-in.jpg";
+            else
+                pic = currentBackground.pic + "-nrm.jpg";
+            create_pic(pic);
+            load_background(pic, false);
             if(!lock){
-				        load_page("cam-after-photo.html",false,function(){
-                  reload_background();
+				        load_page("cam-after-photo.html",true,function(){
+                  currentPage.page = "cam-after-gallery.html";
+                  reload_background(false);
+                  setTimeout(function(){
+                    $("#text-disappear").fadeOut(450, function() {
+    $(this).show().css({visibility: "hidden"});
+});
+                  }, 2000);
                 });
 			      }
 			     return false;

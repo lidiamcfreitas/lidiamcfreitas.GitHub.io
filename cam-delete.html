@@ -9,17 +9,13 @@
         </div>
     </div>
 
-    <div class="units-row end text-centered transparent-grey">
-        <span><h2 id="text" style="padding-top:5px">De certeza que quer apagar a foto?</h2></span>
-    </div>
-
-    <div class="units-row units-split" >
-        <div class="unit-100 text-centered ">
+    <div class="units-row units-split text-centered" style="background:rgba(255, 255, 255, 0.6);border-radius:10px;border: 2px solid rgba(0, 0, 0, 0.6);margin-left:10px;margin-right:10px;padding-bottom:10px">
+        <span><h2 id="text" style="padding-top:10px">De certeza que quer apagar a foto?</h2></span>
 	            <i style="color:rgba(0,0,0,0.8)"class="fa fa-trash fa-4x"></i>
-	        </div>
     </div>
+   
 
-    <div class="units-row units-split end-screen" style="padding-top:20px">
+    <div class="units-row units-split end-screen" style="padding-top:9px">
         <div class="unit-50 btn btn-red" id="btn-check">
             <i class="fa fa-check fa-2x"></i>
         </div>
@@ -39,7 +35,7 @@
             if(!lock){
 				load_page("cam-after-photo.html",false,function(){
                     $(".zoom-io").toggle();
-                    reload_background();
+                    reload_background(true);
                 });
 			}
 			return false;
@@ -55,7 +51,7 @@
             $(".btn-delete-show").click(function() {
                 load_page("cam-gallery.html",false, function(){
                     default_background();
-                    reload_background();
+                    reload_background(true);
                     load_gallery();
                     reset_backtracker();
                     add_menu_backtracker();

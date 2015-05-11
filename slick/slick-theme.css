@@ -128,6 +128,7 @@
     list-style: none;
 
     text-align: center;
+    cursor: default;
 }
 
 .slick-dots
@@ -168,7 +169,7 @@
     height: 20px;
     padding: 5px;
 
-    cursor: pointer;
+    cursor: default;
 
     color: transparent;
     border: 0;
@@ -178,12 +179,14 @@
 .slick-dots li button:hover,
 .slick-dots li button:focus
 {
-    outline: none;
+/*    outline: none;*/
+    cursor: default;
 }
 .slick-dots li button:hover:before,
 .slick-dots li button:focus:before
 {
-    opacity: 1;
+/*    opacity: 1;*/
+    cursor: default;
 }
 .slick-dots li button:before
 {
@@ -203,6 +206,8 @@
 
     opacity: .25;
     color: white;
+    
+    cursor: default;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -211,6 +216,7 @@
 {
     opacity: .75;
     color: white;
+    cursor: default;
 }
 
 .horizontal-picture-slider .slick-dots li button:before

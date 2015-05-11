@@ -8,7 +8,7 @@
 </div>
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-1" style="color:white">______</h4></div>
+    <div class="unit-50 text-centered" ><h4 id="text-route-1" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-1" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
@@ -18,7 +18,7 @@
 </div> 
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-2" style="color:white">______</h4></div>
+    <div class="unit-50 text-centered" ><h4 id="text-route-2" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-2" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
@@ -28,7 +28,7 @@
 </div> 
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-3" style="color:white">______</h4></div>
+    <div class="unit-50 text-centered" ><h4 id="text-route-3" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-3" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
@@ -37,8 +37,9 @@
     </div>
 </div> 
 
-<div id="btn-go" class="units-row units-split">
-    <div class="btn btn-green unit-100"><h2 style="color:white">IR</h2></div>
+<div class="units-row units-split">
+    <div id="btn-go" class="btn btn-green unit-50"><h2 style="color:white">IR</h2></div>
+    <div id="btn-clear" class="btn btn-red unit-50"><h2 style="color:white;padding-left:-5px">APAGAR</h2></div>
 </div>
 
 <script>
@@ -50,11 +51,16 @@
             });
         } else {
             load_page("nav-route-error.html",true,function(){
-                navigation.in_navigation = true;
+                navigation.in_navigation = false;
                 load_arrow_page();
             });
         }
     });
+    $("#btn-clear").click(function(){
+        navigation.destinations = [];
+        load_route_page();
+    });
+    
     $("#btn-loc-1").click(function(){
         currentSelectionLine = 0;
         load_page("nav-locations.html",true,function(){

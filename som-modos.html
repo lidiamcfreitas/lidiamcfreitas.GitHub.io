@@ -8,7 +8,7 @@
 </div>
 
 <div>
-    <span><h2 id="text-active" class="text-centered" style="padding-top:5px;color:#807f7f"> Modo Activo  </h2></span>
+    <span><h2 id="text-active" class="text-centered" style="padding-top:5px;color:#807f7f"> Perfil Activo  </h2></span>
 </div>
 
 <div id="modos-text" class="units-row text-centered transparent-grey cursor-swipe">
@@ -189,5 +189,13 @@
            }
             helpPressed = !helpPressed;
         });
-        
+        $("#text-constante").click(function(){
+            $("#d-constante").trigger("click");
+        });
+        $("#text-manual").click(function(){
+            $("#d-manual").trigger("click");
+        });
+        $("#text-posicao").click(function(){
+            $("#d-posicao").trigger("click");
+        });
 	</script>

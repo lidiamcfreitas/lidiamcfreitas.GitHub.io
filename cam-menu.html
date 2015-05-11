@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/kube.min.css" />
+    <link rel="stylesheet" href="css/kube.css" />
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
     <link rel="stylesheet" type="text/css" href="css/ipm.css"/>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div id="replace-screen">
+            <div id="replace-screen" class="noselect">
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/dragdealer.js"></script>
     <script src="js/flipclock.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="slick/slick.js"></script>
     <script src="powerange-master/dist/powerange.min.js"></script> 
     <script src="js/draggabilly.pkgd.min.js"></script>
     <script>
@@ -108,8 +108,7 @@
             s1: 0,
             s2: 30,
             s3: 60,
-            s4: 80,
-            s5: 100
+            s4: 80
         };
         
         var slideIndex = 0;
@@ -144,6 +143,9 @@
 
         var navigation = {
             in_navigation: false,
+            tent: {
+                set: false
+            },
             selected_location: 0,
             destinations: [],
             locations : [
@@ -153,7 +155,7 @@
                 y: 320,
                 image: "food.png",
                 favorite: false,
-                name: "Zona de Restauração",
+                name: "Restaurantes",
                 desc: "'Se precisar de um snack...'"
             },
             {
@@ -216,7 +218,7 @@
                 y: 280,
                 image: "beer.png",
                 favorite: false,
-                name: "Bebidas Alcoólicas",
+                name: "Bebidas",
                 desc: "'Não se esqueça! Se beber não conduza...'"
             }]
         };
@@ -385,11 +387,12 @@
         }
 
         function default_background(){
-            currentBackground.pic = "pic1c.jpg";
+            currentBackground.pic = "bck/festival3";
+            currentBackground.zoom = 0;
         }
-        function load_background(bg, zoom){
+        function load_background(bg, zoom,append){
             set_background(bg,zoom);
-            reload_background();
+            reload_background(append);
         }
 
         function set_background(bg,zoom){
@@ -397,8 +400,18 @@
             currentBackground.zoom = zoom;
         }
 
-        function reload_background(){
-            $(".background-image").css("backgroundImage","url(image/"+currentBackground.pic+")"); 
+        function reload_background(append){
+            var pic = "";
+            if(append){
+                if(currentBackground.zoom == -1)
+                    pic = currentBackground.pic + "-out.jpg";
+                else if(currentBackground.zoom == 1)
+                    pic = currentBackground.pic + "-in.jpg";
+                else
+                    pic = currentBackground.pic + "-nrm.jpg";
+            }else
+                pic = currentBackground.pic;
+            $(".background-image").css("backgroundImage","url(image/"+pic+")"); 
         }
         function change_user_position(x,y){
             user.x = x;
@@ -409,7 +422,7 @@
         function load_map(){
             var content;
             for( i = 0; i < navigation.locations.length; i++){
-                content += '<img src="image/'+navigation.locations[i].image+'" class="map-pic" style="top:'+navigation.locations[i].y+'px;left:'+navigation.locations[i].x+'px" data-nav="'+navigation.locations[i].id+'">'
+                content += '<img src="image/'+navigation.locations[i].image+'" class="map-pic cursor-ptr" style="top:'+navigation.locations[i].y+'px;left:'+navigation.locations[i].x+'px" data-nav="'+navigation.locations[i].id+'">'
             }
             content += '<img src="image/user.png" id="user" class="user-map-pic" style="top:'+user.y+'px;left:'+user.x+'px">';
             $("#fill-map").append(content);
@@ -492,11 +505,18 @@
                  });
             }
         }
-        
+        function load_tent_page(){
+            if(navigation.tent.set){
+                $("#without-tent").toggle();
+            } else {
+                $("#with-tent").toggle(); 
+            }
+        }
         function load_locations_page(){
             var content = '';
             for( i = 0; i < navigation.locations.length; i++){
-                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+'</h2><img class="horizontal-loc-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
+                var a = get_distance(user,navigation.locations[i]);
+                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+' - '+a+' m</h2><img class="horizontal-loc-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
             }
             
             $("#horizontal-fill").html(content);
@@ -525,102 +545,89 @@
         }
         function load_selection_page(show_favorites){
             var content = '';
+            var count = 0;
             for( i = 0; i < navigation.locations.length; i++){
                 if((navigation.locations[i].favorite == true && show_favorites == true )|| show_favorites==false){
-                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+'</h2><img class="horizontal-sel-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
+                    count++;
+                var a = get_distance(user,navigation.locations[i]);
+                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-sel-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+' - '+a+' m</h2><img class="horizontal-sel-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
                 }
             }
-            
-            $("#horizontal-fill").html(content);
-            $(".horizontal-sel-pic").mousedown(function(){
-                click = true;
-                setTimeout(function(){
-                    click = false;
-                },120);
-            });
-            $(".horizontal-sel-pic").mouseup(function(){
-                if(click){
-                    var id = $(this).attr("data-nav");
-                    navigation.destinations[currentSelectionLine] = id;
-                    load_page("nav-route.html",true,function(){
-                        load_route_page();
-                    });
-                }
-            });
-            
-            new Dragdealer('horizontal-slider-container',{
-                steps: navigation.locations.length,
-                requestAnimationFrame:true,
-                loose:true
-            });
-        }
-        function load_locations_page(){
-            var content = '';
-            for( i = 0; i < navigation.locations.length; i++){
-                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+'</h2><img class="horizontal-loc-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
+            if(count == 0){
+                $("#horizontal-fill").html('<h1 style="padding-top:20px;padding-left:10px; padding-right:10px" class="text-centered">Adiciona favoritos para os encontrares aqui!</h1>');
+            }else{
+                $("#horizontal-fill").html(content);
+                $(".horizontal-sel-pic").mousedown(function(){
+                    click = true;
+                    setTimeout(function(){
+                        click = false;
+                    },120);
+                });
+                $(".horizontal-sel-pic").mouseup(function(){
+                    if(click){
+                        var id = $(this).attr("data-nav");
+                        navigation.destinations[currentSelectionLine] = id;
+                        load_page("nav-route.html",true,function(){
+                            load_route_page();
+                        });
+                    }
+                });
+
+                new Dragdealer('horizontal-slider-container',{
+                    steps: navigation.locations.length,
+                    requestAnimationFrame:true,
+                    loose:true
+                });
             }
-            
-            $("#horizontal-fill").html(content);
-            $(".horizontal-loc-pic").mousedown(function(){
-                click = true;
-                setTimeout(function(){
-                    click = false;
-                },120);
-            });
-            $(".horizontal-loc-pic").mouseup(function(){
-                if(click){
-                    var id = $(this).attr("data-nav");
-                    navigation.selected_location = id;
-                    load_page("nav-location.html",true,function(){
-                        load_location_page(id);
-                    });
-                }
-            });
-            
-            new Dragdealer('horizontal-slider-container',{
-                steps: navigation.locations.length,
-                requestAnimationFrame:true,
-                loose:true
-            });
+            if(show_favorites)
+                $("#nav-replace-text").html('&nbsp <i class="fa fa-star"></i> Favoritos');
             
         }
+        
         function load_favorites_page(){
             var content = '';
             var count = 0;
             for( i = 0; i < navigation.locations.length; i++){
                 if(navigation.locations[i].favorite == true){
                     count++;
-                    content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+'</h2><img class="horizontal-loc-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
+                    var a = get_distance(user,navigation.locations[i]);
+                content += '<div style="display:table-cell;width:270px;height:270px;" class="horizontal-loc-img"><h2 style="padding-top:10px" class="text-centered">'+navigation.locations[i].name+' - '+a+' m</h2><img class="horizontal-loc-pic" src="image/'+navigation.locations[i].image+'" data-nav="'+navigation.locations[i].id+'"></div>';
                 }
             }
-            
-            $("#horizontal-fill").html(content);
-            $(".horizontal-loc-pic").mousedown(function(){
-                click = true;
-                setTimeout(function(){
-                    click = false;
-                },120);
-            });
-            $(".horizontal-loc-pic").mouseup(function(){
-                if(click){
-                    var id = $(this).attr("data-nav");
-                    navigation.selected_location = id;
-                    load_page("nav-location.html",true,function(){
-                        load_location_page(id);
-                    });
-                }
-            });
-            
-            new Dragdealer('horizontal-slider-container',{
-                steps: count,
-                requestAnimationFrame:true,
-                loose:true
-            });
-            $("#nav-replace-text").html('&nbsp <i class="fa fa-star"></i> Favoritos');
-            
+            if(count == 0){
+                $("#horizontal-fill").html('<h1 style="padding-top:20px;padding-left:10px; padding-right:10px" class="text-centered">Adiciona favoritos para os encontrares aqui!</h1>');
+            }else{
+                $("#horizontal-fill").html(content);
+                $(".horizontal-loc-pic").mousedown(function(){
+                    click = true;
+                    setTimeout(function(){
+                        click = false;
+                    },120);
+                });
+                $(".horizontal-loc-pic").mouseup(function(){
+                    if(click){
+                        var id = $(this).attr("data-nav");
+                        navigation.selected_location = id;
+                        load_page("nav-location.html",true,function(){
+                            load_location_page(id);
+                        });
+                    }
+                });
+
+
+                new Dragdealer('horizontal-slider-container',{
+                    steps: count,
+                    requestAnimationFrame:true,
+                    loose:true
+                });
+                $("#nav-replace-text").html('&nbsp <i class="fa fa-star"></i> Favoritos');
+            }
         }        
         
         function load_route_page(){
+            $("#text-route-1").html("______");
+            $("#text-route-2").html("______");
+            $("#text-route-3").html("______");
             if(navigation.destinations.length > 0){
                 if(navigation.destinations[0] != null){
                     $("#text-route-1").html(get_location_by_id(navigation.destinations[0]).name);
@@ -640,9 +647,10 @@
             content_v = '';
             for (i = 0; i < gallery.day.length; i++) {
                 if(gallery.day[i].photos.length > 0 ){
-                        content_h += '<div style="position:relative;display:table-cell" class="horizontal-img"><h2 style="padding-top:10px;position:absolute;left:10px;top:10px;z-index:3;background:rgba(255, 255, 255, 0.5);width:94%;margin-top:5px" class="text-centered">'+gallery.day[i].date+'</h2><img class="horizontal-pic" src="image/'+gallery.day[i].photos[0].image+'" data-img="'+gallery.day[i].photos[0].id+'"></div>';
+                        content_h += '<div style="position:relative;display:table-cell" class="horizontal-img"><h2 style="padding-top:10px;padding-bottom:10px;position:absolute;left:60px;top:10px;z-index:3;background:rgba(255, 255, 255, 0.6);border-radius:10px;border: 2px solid rgba(0, 0, 0, 0.6);width:50%;margin-top:5px" class="text-centered">'+gallery.day[i].date+'</h2><img class="horizontal-pic" src="image/'+gallery.day[i].photos[0].image+'" data-img="'+gallery.day[i].photos[0].id+'"></div>';
                     }
             }
+            
             $("#horizontal-fill").html(content_h);
             $("#vertical-fill").html(content_v);
             $("#vertical-slider-container").toggle();
@@ -695,9 +703,9 @@
                     $(".vertical-pic").mouseup(function(){
                         if(click){
                             currentPic = $(this).attr("data-img");
-                            load_background(get_pic_by_id(currentPic,false));
-                            load_page("cam-after-photo.html",true,function(){
-                                reload_background();
+                            load_background(get_pic_by_id(currentPic,0),false);
+                            load_page("cam-after-gallery.html",true,function(){
+                                reload_background(false);
                             });
                         }
                     });
@@ -777,7 +785,7 @@
                             volumeSliders.s3 = elemVol3.value;
                         };
                         function funcS4(){ 
-                            volumeSliders.s4 = elemVol3.value;
+                            volumeSliders.s4 = elemVol4.value;
                         };
 
                         new Dragdealer('sliders-volume',{
@@ -795,7 +803,15 @@
                 return false;
 
             });
-            
+            $("#btn-tent").click(function(){
+                load_page("nav-tent.html",true,function(){
+                    load_tent_page();
+                });
+                up();
+                activated = !activated;
+                reset_backtracker();
+                add_menu_backtracker();
+            });
             $("#btn-route").click(function(){
                 load_page("nav-route.html",true,function(){
                     load_route_page();
@@ -873,7 +889,7 @@
                 if(!lock){
                     load_page("cam-photo.html",true,function(){
                         default_background();
-                        reload_background();
+                        reload_background(true);
                         up();
                         activated = !activated;
                         
@@ -926,12 +942,16 @@
         
         $("#button-main").click(function() {
             if(!lock && !lockMenu){
-                activated = !activated;
-                if(activated){
-                    down();
-                }
-                else{
-                    up();
+                if(navigation.in_navigation){
+                    load_page("nav-cancel.html", false);
+                }else{
+                    activated = !activated;
+                    if(activated){
+                        down();
+                    }
+                    else{
+                        up();
+                    }
                 }
             }
             return false;
@@ -950,6 +970,8 @@
         
         $("#button-home").click(function() {
             load_page("cam-main-menu.html",false,function(){
+                reset_backtracker();
+                add_menu_backtracker();
                 up();
                 activated = !activated;
             });
@@ -996,7 +1018,7 @@
             $(".menu-fit").height(getPPI()*1.28*2.36*0.87)
             currentBackground ={
                 pic: "pic1c.jpg",
-                zoom: false
+                zoom: 0
             };
             currentPage={
                 page: "cam-main-menu.html"

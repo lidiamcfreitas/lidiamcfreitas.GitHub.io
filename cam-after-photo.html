@@ -8,8 +8,9 @@
             <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
         </div>
     </div>
-    
-        <div id="btn-share" style="padding-top:175px" class="units-row units-split end-screen">
+    <div id="text-disappear" class="units-row units-split text-centered" style="background:rgba(255, 255, 255, 0.6);border-radius:10px;border: 2px solid rgba(0, 0, 0, 0.6);margin-left:10px;margin-right:10px"><h1 style="padding-top:5px">Foto guardada <br>na galeria!</h1> 
+    </div>
+        <div id="btn-share" style="padding-top:50px" class="units-row units-split end-screen">
             <div class="unit-50 btn btn-green">
                 <i class="fa fa-share-alt fa-2x"></i>
             </div>
@@ -24,7 +25,8 @@
 			up();
             activated = !activated;
             if(!lock){
-				load_page("cam-share.html",true);
+				load_page("cam-share.html",true,function(){
+                });
 			}
 			return false;
 			
@@ -35,7 +37,6 @@
             activated = !activated;
             if(!lock){
 				load_page("cam-delete.html",true,function(){
-                    reload_background();
                 });
 			}
 			return false;

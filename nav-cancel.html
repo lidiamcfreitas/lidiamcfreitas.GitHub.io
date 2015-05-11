@@ -23,13 +23,15 @@
 </div>
 <script>
 $("#btn-pos").click(function() {
+    navigation.destinations = [];
+    navigation.in_navigation = false;
     load_page("nav-map.html",true,function(){
         load_map();
         up();
         activated = !activated;
+        reset_backtracker();
+        add_menu_backtracker();
     });
-    reset_backtracker();
-    add_menu_backtracker();
 });
 
 $("#btn-neg").click(function() {

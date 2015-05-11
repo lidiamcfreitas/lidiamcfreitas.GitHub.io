@@ -1400,7 +1400,7 @@ input.input-smaller {
 .navbar li.active a,
 .navbar span {
   text-decoration: none;
-  cursor: text;
+  /* cursor: text; */
   color: rgba(0, 0, 0, 0.4);
 }
 .navigation-toggle {
@@ -1452,7 +1452,7 @@ input.input-smaller {
 .navbar-pills li.active a,
 .navbar-pills span {
   text-decoration: none;
-  cursor: text;
+  /*cursor: text; */
   color: rgba(0, 0, 0, 0.4);
   background: #eee;
 }
@@ -1505,7 +1505,7 @@ input.input-smaller {
 .nav li.active a,
 .nav span {
   text-decoration: none;
-  cursor: text;
+  /*cursor: text; */
   color: rgba(0, 0, 0, 0.4);
 }
 .nav i.fa {
@@ -1530,7 +1530,7 @@ input.input-smaller {
 .nav-stacked span {
   background: #ffffff;
   text-decoration: none;
-  cursor: text;
+  /*cursor: text; */
   color: rgba(0, 0, 0, 0.3);
 }
 /* Stats */
@@ -1664,7 +1664,7 @@ input.input-smaller {
 .breadcrumbs span,
 .breadcrumbs li.active a:hover {
   text-decoration: none;
-  cursor: text;
+  /*cursor: text;*/
   color: rgba(0, 0, 0, 0.4);
 }
 /* =Pagination
@@ -1703,7 +1703,7 @@ input.input-smaller {
 .pagination li.active a:hover {
   color: #ffffff;
   background-color: #0f0f0f;
-  cursor: text;
+  /*cursor: text;*/
 }
 .pagination a:focus,
 .pagination a:hover {

@@ -12,8 +12,8 @@
 	</div>
 	<div class="units-row units-split" id="contain">
 		<div class="horizontal-picture-slider" style="padding-top:10px">
-			<div class="text-centered" id="pic1"><span><h4>Camera 1</h4></span><img src="image/pic5c.jpg" style="width:98%;height:200px;padding-left:2px;padding-right:2px;padding-bottom:10px"></div>
-			<div class="text-centered" id="pic2"><span><h4>Camera 2</h4></span><img src="image/pic6c.jpg" style="width:98%;height:200px;padding-left:2px;padding-right:2px;padding-bottom:10px"></div>
+			<div class="text-centered" id="pic1"><span><h4>Camera 1</h4></span><img src="image/bck/festival1-nrm.jpg" style="width:98%;height:200px;padding-left:2px;padding-right:2px;padding-bottom:10px"></div>
+			<div class="text-centered" id="pic2"><span><h4>Camera 2</h4></span><img src="image/bck/festival2-nrm.jpg" style="width:98%;height:200px;padding-left:2px;padding-right:2px;padding-bottom:10px"></div>
 		</div>
 	</div>
 </div>
@@ -22,14 +22,14 @@
 	$("#pic1").click(function(){
 		if(!lock){
 			load_page("cam-photo.html",true,function(){
-				load_background("pic5c.jpg",false);
+				load_background("bck/festival1",0,true);
 			});
 		}
 	});
 	$("#pic2").click(function(){
 		if(!lock){
 			load_page("cam-photo.html",true,function(){
-				load_background("pic6c.jpg",false);
+				load_background("bck/festival2",0,true);
 			});
 		}
 	});
