@@ -701,9 +701,9 @@
 
         var _ = this;
 
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+        /*if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
             $('li', _.$dots).off('click.slick', _.changeSlide);
-        }
+        }*/
 
         if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.options.autoplay === true) {
             $('li', _.$dots)
