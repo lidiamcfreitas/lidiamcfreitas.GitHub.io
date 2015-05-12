@@ -1,6 +1,6 @@
-<div class="units-row units-split" style="background:#1079A3;padding-top:5px" >
+<div id="nav-title" class="color-change units-row units-split" style="background:#1079A3;padding-top:5px" >
     <div class="unit-70">
-        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-share-alt fa-lg"></i> Menu</h3></span>
+        <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-bars fa-lg"></i> Menu</h3></span>
     </div>
     <div class="units-30">
         <span><h3 style="color:#FFFFFF;margin-right:10px"class="right watch"></h3></span>
@@ -8,12 +8,12 @@
 </div>
 <div class="units-row units-split">
 	<div class=" topboxGal unit-50">
-        <button id="btn-cam" class="btn btn-black btn-share"><i style="color:white;" class="fa fa-camera fa-5x"></i></button>
-        <button id="btn-nav" class="btn btn-black btn-share"><i style="color:white" class="fa fa-location-arrow fa-5x"></i></button>
+        <button id="btn-cam" class="color-change btn btn-black btn-share"><i style="color:white;" class="fa fa-camera fa-5x"></i></button>
+        <button id="btn-nav" class="color-change btn btn-black btn-share"><i style="color:white" class="fa fa-location-arrow fa-5x"></i></button>
 		</div>
     <div style class=" topboxGal unit-50">
-        <button id="btn-sound" class="btn btn-black btn-share"><i style="color:white" class="fa fa-volume-up fa-5x"></i></button>
-        <button id="btn-friends" class="btn btn-black btn-share"><i style="color:white" class="fa fa-users fa-5x"></i></button>
+        <button id="btn-sound" class="color-change btn btn-black btn-share"><i style="color:white" class="fa fa-volume-up fa-5x"></i></button>
+        <button id="btn-friends" class="color-change btn btn-black btn-share"><i style="color:white" class="fa fa-users fa-5x"></i></button>
    	</div>
 
 </div>
@@ -35,10 +35,14 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Drone</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-galeria" class="text-centered"><i class="fa fa-picture-o fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Galeria</h2></div>');
-            slideIndex = 4;
+            $(".slick-menu").slick('slickAdd','<div id="btn-cam-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
+            slideIndex = 5;
             down();
             activated = !activated;
 			bind_menu_buttons();
+            //$('.color-change').animate({backgroundColor: '#BB3C3D'});
+            //$('#nav-title').animate({backgroundColor: '#54A220'});
 			return false;
 		});
         $("#btn-nav").click(function() {
@@ -58,10 +62,13 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Percurso</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-tent" class="text-centered"><i class="fa fa-home fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Tenda</h2></div>');
-            slideIndex = 5;
+            $(".slick-menu").slick('slickAdd','<div id="btn-nav-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
+            slideIndex = 6;
             down();
             activated = !activated;
             bind_menu_buttons();
+            //$('.color-change').animate({backgroundColor: '#60B99B'});
             return false;
         });
         
@@ -78,10 +85,13 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Volume Individual</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-equalizador" class="text-centered"><i class="fa fa-microphone fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Equalizador</h2></div>');
-            slideIndex = 3;
+            $(".slick-menu").slick('slickAdd','<div id="btn-som-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
+            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
+            slideIndex = 4;
             down();
             activated = !activated;
             bind_menu_buttons();
+            //$('.color-change').animate({backgroundColor: '#F37323'});
             return false;
         });
 

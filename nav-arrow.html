@@ -20,14 +20,24 @@
 </div>
 
 <div style="margin-top:10px" class="units-row units-split end-screen">
-    <div id="btn-cancel" class="unit-100 btn btn-red">
+    <div id="btn-nav-cancel" class="unit-100 btn btn-red">
         <i class="fa fa-times fa-2x"></i>
+    </div>
+    <div id="btn-nav-confirm" class="unit-100 btn btn-green">
+        <i class="fa fa-check fa-2x"></i>
     </div>
 </div>
 
 <script>
-    $("#btn-cancel").click(function(){
+    $("#btn-nav-cancel").click(function(){
         load_page("nav-cancel.html",false,function(){
+        });
+    });
+    $("#btn-nav-confirm").click(function(){
+        load_page("nav-map.html",true,function(){
+            load_map();
+            reset_backtracker();
+            add_menu_backtracker();
         });
     });
 </script>

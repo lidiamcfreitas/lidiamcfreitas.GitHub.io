@@ -22,13 +22,18 @@
     </div>
     <div style="margin:auto;" class="screen">
         <div id="main-container">
-            <div class="menu-fit" id="nav-menu">
-                <div id="menu-icons" class="units-row units-split" >
+            <div class="menu-fit color-change" id="nav-menu">
+                <div class="units-row units-split" style="overflow:auto">
+                    <div class="text-centered" style="background-color:rgba(0, 0, 0, 0.2);color:black;border-radius:10px;margin:10px">
+                        <span style="position:relative;padding-top:10px"><i class="fa fa-question fa-2x" style="color:white;display:inline-block"><h2 style="color:white;font-size:80%;display:inline-block"> &nbsp Ajuda</h2></i></span>
+                    </div>
+                </div>
+                <div id="menu-icons" class="units-row units-split" style="margin-top:-45px" >
                     <div class="slick-menu big">
                  
                     </div>
                 </div>
-                <div class="units-row units-split">
+                <div class="units-row units-split" style="margin-top:-35px">
                     <div class="slick-menu-text">
             
                     </div>
@@ -73,6 +78,7 @@
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/dragdealer.js"></script>
     <script src="js/flipclock.min.js"></script>
+    <script src="js/jquery.animate-colors.js"></script>
     <script type="text/javascript" src="slick/slick.js"></script>
     <script src="powerange-master/dist/powerange.min.js"></script> 
     <script src="js/draggabilly.pkgd.min.js"></script>
@@ -455,7 +461,8 @@
                         load_arrow_page();
                     }else{
                         navigation.in_navigation = false;
-                        $("#location-dist").html("Chegou ao seu destino!");
+                        $("#location-dist").html("Chegou ao seu destino!");             
+                        $("#btn-nav-cancel").toggle();
                     }
                 }
             }
@@ -714,6 +721,45 @@
         }
 
         function bind_menu_buttons(){
+            $("#btn-som-help").click(function() { <!-- FIX -->
+                if(!lock){
+                    load_page("som-help.html",true, function(){
+                    });
+                    up();
+                    activated = !activated;
+                    reset_backtracker();
+                    add_menu_backtracker();
+
+                }
+                return false;
+                
+            });
+            $("#btn-nav-help").click(function() { <!-- FIX -->
+                if(!lock){
+                    load_page("nav-help.html",true, function(){
+                    });
+                    up();
+                    activated = !activated;
+                    reset_backtracker();
+                    add_menu_backtracker();
+
+                }
+                return false;
+                
+            });
+            $("#btn-cam-help").click(function() { <!-- FIX -->
+                if(!lock){
+                    load_page("cam-help.html",true, function(){
+                    });
+                    up();
+                    activated = !activated;
+                    reset_backtracker();
+                    add_menu_backtracker();
+
+                }
+                return false;
+                
+            });
             
             $("#btn-modos").click(function() { <!-- FIX -->
                 if(!lock){
