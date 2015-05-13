@@ -24,8 +24,8 @@
         <div id="main-container">
             <div class="menu-fit color-change" id="nav-menu">
                 <div class="units-row units-split" style="overflow:auto">
-                    <div class="text-centered" style="background-color:rgba(0, 0, 0, 0.2);color:black;border-radius:10px;margin:10px">
-                        <span style="position:relative;padding-top:10px"><i class="fa fa-question fa-2x" style="color:white;display:inline-block"><h2 style="color:white;font-size:80%;display:inline-block"> &nbsp Ajuda</h2></i></span>
+                    <div class="text-centered cursor-ptr btn-help" style="background-color:rgba(0, 0, 0, 0.2);color:black;border-radius:10px;margin:10px">
+                        <span style="position:relative;top:5px"><i class="fa fa-question fa-2x" style="color:white;display:inline-block"><h2 style="color:white;font-size:80%;display:inline-block"> &nbsp Ajuda</h2></i></span>
                     </div>
                 </div>
                 <div id="menu-icons" class="units-row units-split" style="margin-top:-45px" >
@@ -577,7 +577,7 @@
                         load_page("nav-route.html",true,function(){
                             load_route_page();
                         });
-                    }
+                    };
                 });
 
                 new Dragdealer('horizontal-slider-container',{
@@ -721,7 +721,7 @@
         }
 
         function bind_menu_buttons(){
-            $("#btn-som-help").click(function() { <!-- FIX -->
+            $(".btn-som-help").click(function() { <!-- FIX -->
                 if(!lock){
                     load_page("som-help.html",true, function(){
                     });
@@ -734,7 +734,7 @@
                 return false;
                 
             });
-            $("#btn-nav-help").click(function() { <!-- FIX -->
+            $(".btn-nav-help").click(function() { <!-- FIX -->
                 if(!lock){
                     load_page("nav-help.html",true, function(){
                     });
@@ -747,7 +747,7 @@
                 return false;
                 
             });
-            $("#btn-cam-help").click(function() { <!-- FIX -->
+            $(".btn-cam-help").click(function() { <!-- FIX -->
                 if(!lock){
                     load_page("cam-help.html",true, function(){
                     });

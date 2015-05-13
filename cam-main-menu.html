@@ -35,9 +35,14 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Drone</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-galeria" class="text-centered"><i class="fa fa-picture-o fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Galeria</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-cam-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
-            slideIndex = 5;
+            
+            $(".btn-help").removeClass("btn-amigos-help");
+            $(".btn-help").removeClass("btn-som-help");
+            $(".btn-help").removeClass("btn-cam-help");
+            $(".btn-help").removeClass("btn-nav-help");
+            $(".btn-help").addClass("btn-cam-help");
+            
+            slideIndex = 4;
             down();
             activated = !activated;
 			bind_menu_buttons();
@@ -62,9 +67,14 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Percurso</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-tent" class="text-centered"><i class="fa fa-home fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Tenda</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-nav-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
-            slideIndex = 6;
+            
+            $(".btn-help").removeClass("btn-amigos-help");
+            $(".btn-help").removeClass("btn-som-help");
+            $(".btn-help").removeClass("btn-cam-help");
+            $(".btn-help").removeClass("btn-nav-help");
+            $(".btn-help").addClass("btn-nav-help");
+            
+            slideIndex = 5;
             down();
             activated = !activated;
             bind_menu_buttons();
@@ -85,9 +95,15 @@
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Volume Individual</h2></div>');
             $(".slick-menu").slick('slickAdd','<div id="btn-equalizador" class="text-centered"><i class="fa fa-microphone fa-5x"></i></div>');
             $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Equalizador</h2></div>');
-            $(".slick-menu").slick('slickAdd','<div id="btn-som-help" class="text-centered"><i class="fa fa-question fa-5x"></i></div>');
-            $(".slick-menu-text").slick('slickAdd','<div class="text-centered"><h2 style="color:white">Ajuda</h2></div>');
-            slideIndex = 4;
+            
+            $(".btn-help").removeClass("btn-amigos-help");
+            $(".btn-help").removeClass("btn-som-help");
+            $(".btn-help").removeClass("btn-cam-help");
+            $(".btn-help").removeClass("btn-nav-help");
+            $(".btn-help").addClass("btn-som-help");
+            
+            
+            slideIndex = 3;
             down();
             activated = !activated;
             bind_menu_buttons();
