@@ -29,6 +29,12 @@ $("#btn-pos").click(function() {
         load_map();
         up();
         activated = !activated;
+        
+            $('#button-home').prop('disabled', false);
+            $('#button-back').prop('disabled', false);
+            $('#button-lock').prop('disabled', false);
+            $('#button-main').prop('disabled', false);
+        
         reset_backtracker();
         add_menu_backtracker();
     });
@@ -37,6 +43,12 @@ $("#btn-pos").click(function() {
 $("#btn-neg").click(function() {
     load_page("nav-arrow.html", false, function(){
         load_arrow_page();
+        
+            $('#button-home').prop('disabled', false);
+            $('#button-back').prop('disabled', false);
+            $('#button-lock').prop('disabled', false);
+            $('#button-main').prop('disabled', false);
+        
         reset_backtracker();
         add_menu_backtracker();
     });

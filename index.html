@@ -50,7 +50,7 @@
         <button class="btn btn-black" id="button-lock" style="display: inline-block; width: 20px; right: 0px;top:0px; position: absolute; padding: 0px;height:25px;margin:0px"><i class="fa fa-lock"></i></button>
     </div>
     
-    <div id="simulador" class="topbox" style="width:300px">
+    <div id="simulador" class="topbox noselect" style="width:300px">
         <div style="margin-top:100px;background-color:rgba(54, 54, 54, 0.8);padding:10px">
             <span class="text-centered"><h4 style="color:white;font-size:100%">Simulador de passos </h4></span>
 
@@ -989,7 +989,12 @@
         $("#button-main").click(function() {
             if(!lock && !lockMenu){
                 if(navigation.in_navigation){
-                    load_page("nav-cancel.html", false);
+                    load_page("nav-cancel.html", false,function(){
+                        $('#button-home').prop('disabled', true);
+                        $('#button-back').prop('disabled', true);
+                        $('#button-lock').prop('disabled', true);
+                        $('#button-main').prop('disabled', true);   
+                    });
                 }else{
                     activated = !activated;
                     if(activated){
@@ -1006,7 +1011,12 @@
         $("#button-back").click(function() {
             if(!lock){
                 if(navigation.in_navigation){
-                    load_page("nav-cancel.html", false);
+                    load_page("nav-cancel.html", false,function(){
+                        $('#button-home').prop('disabled', true);
+                        $('#button-back').prop('disabled', true);
+                        $('#button-lock').prop('disabled', true);
+                        $('#button-main').prop('disabled', true);     
+                    });
                 }else{
                     back();
                 }
@@ -1132,6 +1142,7 @@
                 user.y = $("#form-y").val();
                 redraw_user();
             });
+            $("#button-lock").click();
         })
 
     </script>
