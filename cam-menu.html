@@ -228,6 +228,7 @@
                 desc: "'Não se esqueça! Se beber não conduza...'"
             }]
         };
+        var whatWasClicked = "";
         function updateTime() {
             var today=new Date();
             var h=today.getHours();
@@ -987,6 +988,7 @@
         });
         
         $("#button-main").click(function() {
+            whatWasClicked = "main";
             if(!lock && !lockMenu){
                 if(navigation.in_navigation){
                     load_page("nav-cancel.html", false,function(){
@@ -1009,6 +1011,7 @@
         });
 
         $("#button-back").click(function() {
+            whatWasClicked = "back";
             if(!lock){
                 if(navigation.in_navigation){
                     load_page("nav-cancel.html", false,function(){
@@ -1025,43 +1028,64 @@
         });
         
         $("#button-home").click(function() {
-            load_page("cam-main-menu.html",false,function(){
-                reset_backtracker();
-                add_menu_backtracker();
-                up();
-                activated = !activated;
-            });
+            whatWasClicked = "home";
+            if(navigation.in_navigation){
+                load_page("nav-cancel.html", false,function(){
+                    $('#button-home').prop('disabled', true);
+                    $('#button-back').prop('disabled', true);
+                    $('#button-lock').prop('disabled', true);
+                    $('#button-main').prop('disabled', true);   
+                });
+            }else{
+                load_page("cam-main-menu.html",false,function(){
+                    reset_backtracker();
+                    add_menu_backtracker();
+                    up();
+                    activated = !activated;
+                }); 
+            }
         });
         
         $("#button-lock").click(function(){
-            up();
-            activated = !activated;
-            load_page("unlock-screen.html",false,function(){
-                updateTime();
-                new Dragdealer('unlock', {
-                    x: 1,
-                    steps: 2,
-                    loose: true,
-                    callback: function(x, y) {
-                        if (!x) {
-                            this.disable();
-                            $('#unlock').fadeOut();
-                            setTimeout(function(){
-                                load_page("cam-main-menu.html",false);
-                            },250);
-                            $('#button-home').prop('disabled', false);
-                            $('#button-back').prop('disabled', false);
-                            $('#button-lock').prop('disabled', false);
-                            $('#button-main').prop('disabled', false);
-                        }
-                    }
+            whatWasClicked = "lock";
+            if(navigation.in_navigation){
+                load_page("nav-cancel.html", false,function(){
+                    $('#button-home').prop('disabled', true);
+                    $('#button-back').prop('disabled', true);
+                    $('#button-lock').prop('disabled', true);
+                    $('#button-main').prop('disabled', true);   
                 });
+            }else{
+                up();
+                activated = !activated;
+                load_page("unlock-screen.html",false,function(){
+                    updateTime();
+                    new Dragdealer('unlock', {
+                        x: 1,
+                        steps: 2,
+                        loose: true,
+                        callback: function(x, y) {
+                            if (!x) {
+                                this.disable();
+                                $('#unlock').fadeOut();
+                                setTimeout(function(){
+                                    load_page("cam-main-menu.html",false);
+                                },250);
+                                $('#button-home').prop('disabled', false);
+                                $('#button-back').prop('disabled', false);
+                                $('#button-lock').prop('disabled', false);
+                                $('#button-main').prop('disabled', false);
+                            }
+                        }
+                    });
+                
             });
             backtracker = [];
             $('#button-home').prop('disabled', true);
             $('#button-back').prop('disabled', true);
             $('#button-lock').prop('disabled', true);
             $('#button-main').prop('disabled', true);
+            }
         });
         
         $(document).ready(function(){
