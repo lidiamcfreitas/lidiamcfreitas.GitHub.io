@@ -1,4 +1,4 @@
-<div id="nav-title" class="color-change units-row units-split" style="background:#1079A3;padding-top:5px" >
+<div id="nav-title" class="color-change units-row units-split" style="background:#363636;padding-top:5px" >
     <div class="unit-70">
         <span><h3 style="color:#FFFFFF">&nbsp <i class="fa fa-bars fa-lg"></i> Menu</h3></span>
     </div>
@@ -8,12 +8,12 @@
 </div>
 <div class="units-row units-split">
 	<div class=" topboxGal unit-50">
-        <button id="btn-cam" class="color-change btn btn-black btn-share" style="border-radius:15px"><i style="color:white" class="fa fa-camera fa-5x"></i></button>
-        <button id="btn-nav" class="color-change btn btn-black btn-share"  style="border-radius:15px"><i style="color:white" class="fa fa-location-arrow fa-5x"></i></button>
+        <button id="btn-cam" class=" btn btn-black btn-share" style="background:#E7766E;border-radius:15px"><i style="color:white" class="fa fa-camera fa-5x"></i></button>
+        <button id="btn-nav" class="btn btn-black btn-share"  style="background:#A1B170;border-radius:15px"><i style="color:white" class="fa fa-location-arrow fa-5x"></i></button>
 		</div>
     <div style class=" topboxGal unit-50">
-        <button id="btn-sound" class="color-change btn btn-black btn-share"  style="border-radius:15px"><i style="color:white" class="fa fa-volume-up fa-5x"></i></button>
-        <button id="btn-friends" class="color-change btn btn-black btn-share"  style="border-radius:15px"><i style="color:white" class="fa fa-users fa-5x"></i></button>
+        <button id="btn-sound" class="btn btn-black btn-share"  style="background:#E6A956;border-radius:15px"><i style="color:white" class="fa fa-volume-up fa-5x"></i></button>
+        <button id="btn-friends" class="btn btn-black btn-share"  style="background:#96556B;border-radius:15px"><i style="color:white" class="fa fa-users fa-5x"></i></button>
    	</div>
 
 </div>
@@ -46,8 +46,8 @@
             down();
             activated = !activated;
 			bind_menu_buttons();
-            //$('.color-change').animate({backgroundColor: '#BB3C3D'});
-            //$('#nav-title').animate({backgroundColor: '#54A220'});
+            $('.color-change').animate({backgroundColor: '#E7766E'});
+            $('#nav-title').animate({backgroundColor: '#763a35'});
 			return false;
 		});
         $("#btn-nav").click(function() {
@@ -78,7 +78,8 @@
             down();
             activated = !activated;
             bind_menu_buttons();
-            //$('.color-change').animate({backgroundColor: '#60B99B'});
+            $('.color-change').animate({backgroundColor: '#A1B170'});
+            $('#nav-title').animate({backgroundColor: '#4e5830'});
             return false;
         });
         
@@ -107,8 +108,15 @@
             down();
             activated = !activated;
             bind_menu_buttons();
-            //$('.color-change').animate({backgroundColor: '#F37323'});
+            $('.color-change').animate({backgroundColor: '#E6A956'});
+            $('#nav-title').animate({backgroundColor: '#5d4626'});
             return false;
         });
-
+        
+        $("#btn-amigos").click(function() {
+            
+            $('.color-change').animate({backgroundColor: '#96556B'});
+            $('#nav-title').animate({backgroundColor: '#482933'});            
+            
+        });
 	</script>

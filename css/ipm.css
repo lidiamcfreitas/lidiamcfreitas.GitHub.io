@@ -24,7 +24,6 @@ body{
 .topboxGal{
     margin-left:auto;
     margin-right:auto;
-    background:#DADADA;
     border-style:solid;
     border-width:0px;
 }
@@ -34,9 +33,9 @@ body{
     width:125px;
     height:100px;
     margin: -5px 10px 20px;
-    /*border-style:solid;
-    border-width:4px;
-    border-color:black; */
+    border-style:solid;
+    border-width:1px;
+    border-color:#363636;
     background-color:#1079A3;
 }
 
@@ -303,4 +302,20 @@ right: 5px;
 #user{
     width: 7%;
     height: 230%; 
+}
+
+.bck-nav-cam{
+    background:#763a35;
+}
+
+.bck-nav-nav{
+    background:#4e5830;
+}
+
+.bck-nav-som{
+    background:#5d4626;
+}
+
+.bck-nav-friends{
+    background:#482933;
 }
