@@ -897,7 +897,7 @@
                     add_menu_backtracker();
                 }
             });
-            $(".btn-drone").click(function() {
+            $("#btn-drone").click(function() {
                 if(!lock){
                     load_page("cam-drone.html",true, function(){
                             clock = $('.clock').FlipClock(10, {
@@ -918,7 +918,7 @@
                 return false;
                 
             });
-            $(".btn-galeria").click(function() { 
+            $("#btn-galeria").click(function() { 
                 if(!lock){
                     load_page("cam-gallery.html",true, function(){
                         load_gallery();
@@ -932,7 +932,7 @@
                 
             });
 
-            $(".btn-camprox").click(function() {
+            $("#btn-camprox").click(function() {
                 if(!lock){
                     load_page("cam-photo.html",true,function(){
                         default_background();
@@ -947,7 +947,7 @@
                 return false;
                 
             });
-            $(".btn-camfix").click(function() {
+            $("#btn-camfix").click(function() {
                 if(!lock){
                     load_page("cam-list.html",true,function(){
                         $(".horizontal-picture-slider").slick({
