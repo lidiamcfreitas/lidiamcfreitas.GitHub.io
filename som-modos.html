@@ -178,9 +178,17 @@
                         },500);
                     })*/
                     new Dragdealer('position-bounds', {
-                      horizontal: true,
-                      vertical: true
+                        x: positionXY[0],
+                        y: positionXY[1],
+                        horizontal: true,
+                        vertical: true,
+                        animationCallback: function(x, y) {
+                            console.log(x,y);
+                            positionXY[0] = x;
+                            positionXY[1] = y;
+                        }
                     });
+                    positionXY[0]
                 });
                 up();
                 activated = !activated;
