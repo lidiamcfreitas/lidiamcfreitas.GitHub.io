@@ -1,5 +1,6 @@
 body{
     background-color:#575353;
+    zoom:0.5;
 }
 
 .topbox{
@@ -53,7 +54,6 @@ body{
 #main-screen{
     background:#DADADA;
     border:0px;
-    zoom: 0.5;
 }
 
 #navbar-title{
