@@ -30,6 +30,11 @@
 
 <script>
     $("#btn-nav-cancel").click(function(){
+        $('#button-home').prop('disabled', true);
+        $('#button-back').prop('disabled', true);
+        $('#button-lock').prop('disabled', true);
+        $('#button-main').prop('disabled', true);
+        
         load_page("nav-cancel.html",false,function(){
         });
     });
