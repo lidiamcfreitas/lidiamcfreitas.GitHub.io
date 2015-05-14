@@ -164,6 +164,7 @@
         $("#d-posicao").click(function() {
             if(!lock){
                 load_page("som-posicao.html",true,function(){
+                    /*
                     var $draggable = $('#position').draggabilly({
                         containment: '.container'
                     });
@@ -175,7 +176,11 @@
                             positionXY[0] = $("#position").css("top");
                             positionXY[1] = $("#position").css("left");
                         },500);
-                    })
+                    })*/
+                    new Dragdealer('position-bounds', {
+                      horizontal: true,
+                      vertical: true
+                    });
                 });
                 up();
                 activated = !activated;
