@@ -11,11 +11,30 @@
     <span><h2 id="text-active" class="text-centered" style="padding-top:5px;color:#807f7f"> Perfil Activo  </h2></span>
 </div>
 
-<div id="modos-text" class="units-row text-centered transparent-grey cursor-swipe">
-    <span><h2 id="text-nenhum" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Nenhum <span class="btn-arrow-right">&gt</span> </h2></span>
-    <span><h2 id="text-manual" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Manual <span class="btn-arrow-right">&gt</span></h2></span>
-    <span><h2 id="text-constante" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Constante <span class="btn-arrow-right">&gt</span> </h2></span>
-    <span><h2 id="text-posicao" style="padding-top:5px"><span class="btn-arrow-left">&lt</span> Posição <span class="btn-arrow-right">&gt</span> </h2></span>
+<div id="modos-text" class="units-row text-centered transparent-grey" style="height:50px">
+    <h2  class="units-row units-split">
+        <div class="unit-30 btn-arrow-left cursor-ptr"><span>&lt</span></div>
+        <div id="text-nenhum" class="unit-40 ">Nenhum </div>
+        <div class="unit-30 btn-arrow-right cursor-ptr"><span>&gt</span></div>
+    </h2>
+    
+    <h2 class="units-row units-split">
+        <div class="unit-30 btn-arrow-left cursor-ptr"><span>&lt</span></div>
+        <div id="text-manual" class="unit-40 ">Manual </div>
+        <div class="unit-30 btn-arrow-right cursor-ptr"><span>&gt</span></div>
+    </h2>
+    
+    <h2 class="units-row units-split">
+        <div class="unit-30 btn-arrow-left cursor-ptr"><span>&lt</span></div>
+        <div id="text-constante" class="unit-40 ">Manual </div>
+        <div class="unit-30 btn-arrow-right cursor-ptr"><span>&gt</span></div>
+    </h2>
+    
+    <h2 class="units-row units-split">
+        <div class="unit-30 btn-arrow-left cursor-ptr"><span>&lt</span></div>
+        <div id="text-posicao" class="unit-40 ">Manual </div>
+        <div class="unit-30 btn-arrow-right cursor-ptr"><span>&gt</span></div>
+    </h2>
 </div>
 <div   style="float:left;margin-left:0px;margin-right:0px;margin-top:-35px;color:white;width=100%;background-color:#2575ed;">
     <h2 id="info-mode" style="color:white"></h2>
@@ -60,7 +79,8 @@
 
     <script>        
         $('#modos-text').slick({
-            slidesToShow: 1
+            slidesToShow: 1,
+            dots: true
         });
         $('#choices').slick({
             slidesToShow: 1,
