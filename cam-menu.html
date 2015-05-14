@@ -103,6 +103,8 @@
 
         var unlock_drag;
         
+        var whatWasClicked = "";
+        
         var inHomeScreen = true;
         var equalizer = {
             eq1: 0,
@@ -228,7 +230,7 @@
                 desc: "'Não se esqueça! Se beber não conduza...'"
             }]
         };
-        var whatWasClicked = "";
+        
         function updateTime() {
             var today=new Date();
             var h=today.getHours();
