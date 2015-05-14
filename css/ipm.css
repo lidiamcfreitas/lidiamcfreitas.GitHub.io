@@ -48,12 +48,12 @@ body{
     margin-top:10px;
     overflow:hidden;
     -moz-transform:scale(0.5);
-    zoom: 0.5;
 }
 
 #main-screen{
     background:#DADADA;
     border:0px;
+    zoom: 0.5;
 }
 
 #navbar-title{
