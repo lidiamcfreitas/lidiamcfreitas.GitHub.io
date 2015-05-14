@@ -615,14 +615,13 @@ Dragdealer.prototype = {
         Cursor.y - this.offset.wrapper[1] - this.offset.mouse[1]
 
       ];
-      if(navigator.userAgent.indexOf("Firefox") != -1 ) 
-    {
+      if(navigator.userAgent.indexOf("Firefox") != -1 ) {
          console.log('Firefox');
          offset[0] *=2;
          offset[1] *=2;
-    } else {
+       } else {
             console.log("other browser");   
-      }
+       }
 
       this.setTargetValueByOffset(offset, this.options.loose);
 
