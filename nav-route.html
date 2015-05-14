@@ -8,31 +8,31 @@
 </div>
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-1" style="color:white;padding-top:10px">______</h4></div>
+    <div class="btn-loc-1 cursor-ptr unit-50 text-centered" ><h4 id="text-route-1" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-1" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
-    <div id="btn-loc-1" class="unit-25 text-centered cursor-ptr" >
+    <div class="btn-loc-1 unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-map-marker fa-2x" style="margin:10px"></i>
     </div>
 </div> 
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-2" style="color:white;padding-top:10px">______</h4></div>
+    <div class="btn-loc-2 cursor-ptr unit-50 text-centered" ><h4 id="text-route-2" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-2" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
-    <div id="btn-loc-2" class="unit-25 text-centered cursor-ptr" >
+    <div class="btn-loc-2 unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-map-marker fa-2x" style="margin:10px"></i>
     </div>
 </div> 
 
 <div class="units-row units-split" style="background-color:#363636;border-radius:15px;;padding:2px;color:white;margin:10px">
-    <div class="unit-50 text-centered" ><h4 id="text-route-3" style="color:white;padding-top:10px">______</h4></div>
+    <div class="btn-loc-3 cursor-ptr unit-50 text-centered" ><h4 id="text-route-3" style="color:white;padding-top:10px">______</h4></div>
     <div id="btn-fav-3" class="unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-star fa-2x" style="margin:10px"></i>
     </div>
-    <div id="btn-loc-3" class="unit-25 text-centered cursor-ptr" >
+    <div class="btn-loc-3 unit-25 text-centered cursor-ptr" >
         <i id="fav-icon" class="fa fa-map-marker fa-2x" style="margin:10px"></i>
     </div>
 </div> 
@@ -61,19 +61,19 @@
         load_route_page();
     });
     
-    $("#btn-loc-1").click(function(){
+    $(".btn-loc-1").click(function(){
         currentSelectionLine = 0;
         load_page("nav-locations.html",true,function(){
             load_selection_page(false);
         });
     });
-    $("#btn-loc-2").click(function(){
+    $(".btn-loc-2").click(function(){
         currentSelectionLine = 1;
         load_page("nav-locations.html",true,function(){
             load_selection_page(false);
         });
     });
-    $("#btn-loc-3").click(function(){
+    $(".btn-loc-3").click(function(){
         currentSelectionLine = 2;
         load_page("nav-locations.html",true,function(){
             load_selection_page(false);
