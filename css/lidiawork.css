@@ -1,0 +1,13 @@
+body {
+    background:url('../img/bkg.jpg');
+} 
+
+.white-border {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.8);
+    color:white;
+}
+
+.text-white {
+    color:white;   
+}
