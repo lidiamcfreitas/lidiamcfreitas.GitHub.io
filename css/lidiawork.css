@@ -1,5 +1,7 @@
 body {
-    background:url('../img/bkg.jpg');
+    background:url('../img/cambridge.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
 } 
 
 .white-border {
@@ -11,3 +13,46 @@ body {
 .text-white {
     color:white;   
 }
+
+#calendar-tests {
+    border-width:0;
+    padding:0px;
+    border-radius:10px;
+}
+
+.fixar-foto {
+    overflow: hidden;
+    background-color: transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;   
+}
+
+.bkg-cambdrige {
+    background: url('../img/cambridge.jpg') center no-repeat;
+}
+
+#btn-fenix {
+    background-color:rgba(0,0,0,0);
+    color:white;
+}
+
+.bkg-tc {
+    background-image: url(../img/tc.jpg);   
+}
+
+
+
+
+
+
+
+
+
+
+
