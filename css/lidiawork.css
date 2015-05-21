@@ -61,8 +61,9 @@ body {
 #buttons button       { background:#002852; border:none; color:#DDD; cursor:pointer; padding:15px 30px; margin:0 auto; border-radius:4px; }
 #stop, #reset { display:none; }
 
-
-
+aside {
+    border-top: 5px solid white;   
+}
 
 
 
