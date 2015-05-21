@@ -47,7 +47,7 @@ body {
 }
 
 .content-collapse {
-    display: visible;
+    display: none;
 }
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans:400,700,600");
@@ -65,6 +65,20 @@ aside {
     border-top: 5px solid white;   
 }
 
+.fixarFotoFim {
+    overflow: hidden;
+    background: url('../img/lidia_opti.png') center no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    padding-top: 600px
+}
 
 
 
