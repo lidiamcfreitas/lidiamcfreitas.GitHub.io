@@ -46,8 +46,20 @@ body {
     background-image: url(../img/tc.jpg);   
 }
 
+.content-collapse {
+    display: none;
+}
 
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,700,600");
 
+#pomodoro       { background:#0D5B85; font-family:"Open Sans"; font-weight:400; padding:30px; text-align:center; }
+
+#message    { color:#DDD; font-size:50px; margin-bottom:20px; }
+
+#timer     { color:#DDD; font-size:200px; margin-bottom:40px; }
+
+#buttons button       { background:#002852; border:none; color:#DDD; cursor:pointer; padding:15px 30px; margin:0 auto; border-radius:4px; }
+#stop, #reset { display:none; }
 
 
 

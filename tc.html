@@ -57,6 +57,12 @@
                         <a class="page-scroll" href="#doc">Doc</a>
                     </li>
                     <li>
+                        <a class="page-scroll" href="#sumarios">Sumários</a>
+                    </li>
+                    <li>
+                        <a id="text-pomodoro" class="page-scroll" href="#header-pomodoro">Pomodoro</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#page-top"><span class="fa fa-arrow-up fa-2x"></span></a>
                     </li>
                 </ul>
@@ -77,7 +83,7 @@
         </div>
     </header>
     
-    <aside class="bg-dark" id="resumo">
+    <aside class="bg-dark" id="doc">
         <div class="container text-center">
             <div class="call-to-action">
                 <h2>Apontamentos</h2>
@@ -85,13 +91,13 @@
         </div>
     </aside>
     
-    <section class="bg-primary" id="doc">
+    <section class="bg-primary">
         <div class="container">
             <iframe src="https://docs.google.com/document/d/1aFMxqY9ZbkKdaAxzkFZeWWUAtVkLCI0XWzyYwAGomFo/edit?usp=sharing?embedded=true" width="100%" height="700"></iframe>
         </div>
     </section>
     
-    <aside class="bg-dark">
+    <aside class="bg-dark" style="padding: 20px 0px;">
         <div class="container text-center">
             <div class="call-to-action">
                 <a id="btn-fenix" target="_blank" href="https://fenix.tecnico.ulisboa.pt/disciplinas/TCom511/2014-2015/2-semestre" class="btn btn-default btn-xl">Go to Fenix</a>
@@ -149,13 +155,50 @@
             </div>
         </div>
     </section>
+    <aside id="header-pomodoro" class="bg-dark header-collapse "   style="padding: 20px 0px;">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <a id="btn-pomodoro" class="btn btn-default btn-xl page-scroll" href="#header-pomodoro">Click for Pomodoro!</a>
+            </div>
+        </div>
+    </aside>
+    <div id="pomodoro" class="content-collapse">
+        <div id="message">Let's Get Started</div>
+        <h3 id="counts" style="color:white">times: 0</h3>
+
+        <div id="timer">
+          <span id="minutes">25</span>
+          <span id="middle">:</span>
+          <span id="seconds">00</span>
+        </div>
+
+        <div id="buttons">
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <button id="reset">Reset</button>
+        </div>
+
+    </div>
+    <aside class="bg-dark" id="sumarios">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Sumários</h2>
+            </div>
+        </div>
+    </aside>
     
+    <section class="bg-primary">
+        <div style="padding-left:50px;padding-right:50px">
+            <!-- start feedwind code --><script type="text/javascript">document.write('\x3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'feed.mikle.com/js/rssmikle.js">\x3C/script>');</script><script type="text/javascript">(function() {var params = {rssmikle_url: "https://fenix.tecnico.ulisboa.pt/disciplinas/TCom511/2014-2015/2-semestre/rss/summary",rssmikle_frame_width: "800",rssmikle_frame_height: "400",frame_height_by_article: "4",rssmikle_target: "_blank",rssmikle_font: "Arial, Helvetica, sans-serif",rssmikle_font_size: "12",rssmikle_border: "off",responsive: "on",rssmikle_css_url: "",text_align: "left",text_align2: "left",corner: "on",scrollbar: "on",autoscroll: "off",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "New",rssmikle_title: "on",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#9ACD32",rssmikle_title_color: "#FFFFFF",rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#000000",rssmikle_item_bgimage: "",rssmikle_item_title_length: "55",rssmikle_item_title_color: "#118A21",rssmikle_item_border_bottom: "on",rssmikle_item_description: "on",item_link: "off",rssmikle_item_description_length: "1000",rssmikle_item_description_color: "#FFFFFF",rssmikle_item_date: "gl1",rssmikle_timezone: "Etc/GMT",datetime_format: "%b %e, %Y %l:%M:%S %p",item_description_style: "text",item_thumbnail: "full",item_thumbnail_selection: "auto",article_num: "100",id:"scrl",rssmikle_item_podcast: "off",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();</script><!-- end feedwind code -->
+        </div>
+    </section>
     <aside class="bg-black">
         <div class="container text-center">
         <h2>Github</h2>
         <a target="_blank" href="https://github.com/lidiamcfreitas" class="btn btn-default btn-xl wow tada">github.com/lidiamcfreitas</a>
         </div>
     </aside>
+    
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 
@@ -169,7 +212,179 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    <script>
+            "use strict";
 
+        var bigTime = 1499; // time in seconds
+        var mode = "normal";
+        var animation = "fadeToBlack";
+
+        var color = "0D5B85";
+        var percent;
+
+        var mins;
+        var secs;
+        
+        var cntr = 0;
+
+        var countdownID;
+
+        // get all the elements
+        var minutes = document.getElementById("minutes");
+        var seconds = document.getElementById("seconds");
+        var message = document.getElementById("message");
+        var counts = document.getElementById("counts");
+
+
+        // register the buttons
+        var start = document.getElementById("start");
+        start.addEventListener("click", startTimer, false);  
+
+        var stop = document.getElementById("stop");
+        stop.addEventListener("click", stopTimer, false);
+
+        var reset = document.getElementById("reset");  
+        reset.addEventListener("click", resetTimer, false);
+        
+        var timerString = "";
+
+        // COUNTER ========================================================
+        function counter() {
+
+          // calculate the minutes and seconds from bigTime
+          mins = Math.floor(bigTime / 60);
+          secs = bigTime - mins * 60;
+
+          // change the HTML to show new minutes and seconds
+          minutes.innerHTML = (mins < 10 ? '0' : '') + mins;
+          seconds.innerHTML = (secs < 10 ? '0' : '') + secs;
+            
+            timerString = 'Pomodoro: ' + minutes.innerHTML + ':' + seconds.innerHTML;
+            $("#text-pomodoro").text(timerString);
+
+          // handle the animations
+            var divisor = 300;
+
+            percent = secs / divisor;
+            color = "#"+shadeColor(color, -percent);
+            document.getElementById("pomodoro").style.background = "#" + color;
+            divisor - 100;
+
+          // change the message at 00
+
+          // switch modes if timer ends
+          if (bigTime == 0) {
+
+            if (mode == "normal") {
+
+              // cooldown is 5min 
+              mode = "cooldown";    
+              bigTime = 300;
+                message.innerHTML = "Pause";
+                document.getElementById("text-pomodoro").style.color = "#15c328";
+
+            } else if (mode == "cooldown") {
+
+              // switch back to normal 25min mode
+              mode = "normal";    
+              bigTime = 1499;  
+              minutes.innerHTML = "25";
+              seconds.innerHTML = "00";
+
+            message.innerHTML = "You did it! Prepare for the next round";
+                document.getElementById("text-pomodoro").style.color = "#222";
+
+              document.body.style.background = "#" + color;
+            
+              // show start button
+              start.style.display = "block"; 
+              stop.style.display = "none"; 
+              reset.style.display = "none"; 
+
+              // stop timer
+              clearInterval(countdownID);
+                startTimer();
+                cntr = cntr + 1;
+                counts.innerHTML = "times: "+cntr;
+            }    
+
+          } else {
+            // decrement
+            bigTime = bigTime - 1; 
+            
+          }
+        }
+
+        // ACTIONS =======================================================
+
+        // start timer
+        function startTimer() {
+            bigTime = 1499;
+          // start timer
+          countdownID = setInterval("counter()", 1000);
+
+          // show message
+          message.innerHTML = "Slow and steady wins something";
+
+          // show stop button
+          start.style.display = "none"; 
+          stop.style.display = "block"; 
+          reset.style.display = "none"; 
+        } 
+
+        // stop timer
+        function stopTimer() {
+          // change message
+          message.innerHTML = "Why are you such a quitter?";
+
+          // stop timer
+          clearInterval(countdownID);
+
+          // show reset button
+          start.style.display = "block"; 
+          stop.style.display = "none"; 
+          reset.style.display = "none"; 
+        }
+
+
+        // ANIMATIONS ================================================ 
+        function fadeToBlack() {
+
+        }
+
+        function colorChange() {
+
+        }
+
+        // HELPER FUNCTIONS ============================================ 
+        function shadeColor(color, percent) {   
+            var num = parseInt(color,16),
+            amt = Math.round(2.55 * percent),
+            R = (num >> 16) + amt,
+            B = (num >> 8 & 0x00FF) + amt,
+            G = (num & 0x0000FF) + amt;
+            return (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
+        }
+    </script>
+
+    <script>
+    $(".header-collapse").click(function () {
+
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $("#btn-pomodoro").text(function () {
+            //change text based on condition
+            return $content.is(":visible") ? "Hide Pomodoro" : "Click for Pomodoro!";
+        });
+    });
+
+});
+    </script>
 </body>
 
 </html>
