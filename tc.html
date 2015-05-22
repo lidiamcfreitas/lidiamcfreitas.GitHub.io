@@ -322,13 +322,14 @@
     <script src="js/jquery.fittext.js"></script>
     <script src="js/wow.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
     <script>
             "use strict";
-
-        var bigTime = 1499; // time in seconds
+        var bigTime = Number(localStorage.getItem("pomodoro-time")); // time in seconds
+        localStorage.setItem("pomodoro-time", bigTime.toString());
         var mode = "normal";
         var animation = "fadeToBlack";
 
@@ -372,8 +373,9 @@
           minutes.innerHTML = (mins < 10 ? '0' : '') + mins;
           seconds.innerHTML = (secs < 10 ? '0' : '') + secs;
             
-            timerString = 'Pomodoro: ' + minutes.innerHTML + ':' + seconds.innerHTML;
-            $("#text-pomodoro").text(timerString);
+            timerString = ' ' + minutes.innerHTML + ':' + seconds.innerHTML;
+            $("#text-pomodoro").text('Pomodoro:'+timerString);
+            document.title = "lidia.work" + timerString;
 
           // handle the animations
             var divisor = 300;
@@ -384,7 +386,6 @@
             divisor - 100;
 
           // change the message at 00
-
           // switch modes if timer ends
           if (bigTime == 0) {
 
@@ -393,6 +394,7 @@
               // cooldown is 5min 
               mode = "cooldown";    
               bigTime = 300;
+            localStorage.setItem("pomodoro-time", bigTime.toString());
                 message.innerHTML = "Pause";
                 document.getElementById("text-pomodoro").style.color = "#15c328";
 
@@ -401,6 +403,7 @@
               // switch back to normal 25min mode
               mode = "normal";    
               bigTime = 1499;  
+                localStorage.setItem("pomodoro-time", bigTime.toString());
               minutes.innerHTML = "25";
               seconds.innerHTML = "00";
 
@@ -424,6 +427,7 @@
           } else {
             // decrement
             bigTime = bigTime - 1; 
+              localStorage.setItem("pomodoro-time", bigTime.toString());
             
           }
         }
@@ -432,7 +436,8 @@
 
         // start timer
         function startTimer() {
-            bigTime = 1499;
+            bigTime = Number(localStorage.getItem("pomodoro-time"));
+            localStorage.setItem("pomodoro-time", bigTime.toString());
           // start timer
           countdownID = setInterval("counter()", 1000);
 
@@ -505,6 +510,7 @@
             });
             $('#arrow-top').click();
         });
+        
     </script>
 </body>
 
