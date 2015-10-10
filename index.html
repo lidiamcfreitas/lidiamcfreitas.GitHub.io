@@ -68,7 +68,7 @@
                     </li>
 -->
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#mapa">Mapa</a>
                     </li>
                 </ul>
             </div>
@@ -81,8 +81,12 @@
     <header>
         <div class="container" id="header_id">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Our Studio!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
+                <div class="row">
+                    <div class="intro-lead-in">Dra. Margarida Miranda</div>
+                    <div class="col-lg-6" style="padding:0px">
+                        <div class="intro-heading">Médica Especialista em Oftalmologia. Nas áreas de oftalmologia pediátrica, diabetes ocular, uveítes e retina médica.</div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -142,12 +146,12 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/roundicons.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/Fisiocare.jpg" class="img-responsive" alt="">
                     </a>
                     
                     <div class="portfolio-caption">
                         <h4>Clínica Fisiocare</h4>
-                        <p class="text-muted">Graphic Design</p>
+                        <p class="text-muted">Massamá</p>
                     </div>
                 </div>
                 
@@ -158,11 +162,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/COlivenca.png" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Consultórios Médicos da Olivença</h4>
-                        <p class="text-muted">Website Design</p>
+                        <p class="text-muted">Amadora</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -172,12 +176,12 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/treehouse.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/CCJoaoDeDeus.png" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>C.C. Dentário S. João de Deus</h4>
                         
-                        <p class="text-muted">Website Design</p>
+                        <p class="text-muted">Santa Iria</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -187,11 +191,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/golden.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/HLuz.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Hospital da Luz</h4>
-                        <p class="text-muted">Website Design</p>
+                        <p class="text-muted">Benfica</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 portfolio-item">
@@ -201,11 +205,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/escape.png" class="img-responsive" alt="">
+                        <img src="img/portfolio/CLISA.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Clínica de S. António</h4>
-                        <p class="text-muted">Website Design</p>
+                        <p class="text-muted">Reboleira</p>
                     </div>
                 </div>
 
@@ -526,11 +530,17 @@
             </div>
         </div>
     </section> -->
-        
-    <div class="container" id="map-container">
-        <div  class="col-md-12"></div>
-
-    </div>
+    <section id="mapa">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Mapa</h2>
+                <h3 class="section-subheading text-muted" style="margin-bottom:20px">Localização dos consultórios.</h3>
+            </div>
+        </div>
+        <div class="container" id="map-container">
+            <div  class="col-md-12"></div>
+        </div>
+    </section>
     
     <footer>
         <div class="container">
@@ -759,23 +769,49 @@
     <script>	
  
       function init_map() {
-		var var_location = new google.maps.LatLng(45.430817,12.331516);
- 
+        var fisiocare_location = new google.maps.LatLng(38.750140, -9.281616 );
+        var clisa_location = new google.maps.LatLng(38.748955, -9.230836);
+        var santairia_location = new google.maps.LatLng(38.846028, -9.083855);
+        var hluz_location = new google.maps.LatLng(38.755546, -9.192381);
+        var olivenca_location = new google.maps.LatLng(38.761316, -9.237623);
+        var center_location = new google.maps.LatLng(38.761316, -9.237623);       
+         
         var var_mapoptions = {
-          center: var_location,
-          zoom: 14
+          center: center_location,
+          zoom: 10
         };
  
-		var var_marker = new google.maps.Marker({
-			position: var_location,
+		var fisio_marker = new google.maps.Marker({
+			position: fisiocare_location,
 			map: var_map,
-			title:"Venice"});
+			title:"Clínica Fisiocare"});
+        var clisa_marker = new google.maps.Marker({
+			position: clisa_location,
+			map: var_map,
+			title:"Clínica de Santo António"});
+        var hluz_marker = new google.maps.Marker({
+			position: hluz_location,
+			map: var_map,
+			title:"Hospital da Luz"});
+        var olivenca_marker = new google.maps.Marker({
+			position: olivenca_location,
+			map: var_map,
+			title:"Consultório Médicos de Olivença"});
+        var santairia_marker = new google.maps.Marker({
+			position: santairia_location,
+			map: var_map,
+			title:"C. C. São João de Deus"});
  
         var var_map = new google.maps.Map(document.getElementById("map-container"),
             var_mapoptions);
  
-		var_marker.setMap(var_map);	
- 
+		santairia_marker.setMap(var_map);
+        hluz_marker.setMap(var_map);
+        clisa_marker.setMap(var_map);
+        olivenca_marker.setMap(var_map);
+        fisio_marker.setMap(var_map);
+          
+        console.log(var_map.getTitle());
       }
  
       google.maps.event.addDomListener(window, 'load', init_map);
