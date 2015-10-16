@@ -1,22 +1,37 @@
-// Bootstrap Button Variant
+// Mixins
+
+.transition-all() {
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.background-cover() {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 
 .button-variant(@color; @background; @border) {
 	color: @color;
 	background-color: @background;
 	border-color: @border;
+	.transition-all;
 
 	&:hover,
 	&:focus,
+	&.focus,
 	&:active,
 	&.active,
-	.open .dropdown-toggle& {
+	.open > .dropdown-toggle& {
 		color: @color;
-		background-color: darken(@background, 10%);
-        border-color: darken(@border, 12%);
+		background-color: darken(@background, 5%);
+	    border-color: darken(@border, 7%);
 	}
 	&:active,
 	&.active,
-	.open .dropdown-toggle& {
+	.open > .dropdown-toggle& {
 		background-image: none;
 	}
 	&.disabled,
@@ -25,6 +40,7 @@
 		&,
 		&:hover,
 		&:focus,
+		&.focus,
 		&:active,
 		&.active {
 			background-color: @background;
@@ -38,30 +54,10 @@
 	}
 }
 
-// Background Features
-
-.background-cover() {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+.sans-serif-font() {
+	font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
-
-// Font Selections
 
 .serif-font() {
-	font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.script-font() {
-	font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
-}
-
-.body-font() {
-	font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-.heading-font() {
-	font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-transform: uppercase;
+	font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
 }
