@@ -46,6 +46,10 @@ body {
     background-image: url(../img/tc.jpg);   
 }
 
+.bkg-ie {
+    background-image: url(../img/athens2.jpg);   
+}
+
 .content-collapse {
     display: none;
 }
