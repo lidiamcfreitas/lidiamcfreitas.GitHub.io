@@ -37,6 +37,14 @@ body {
     background: url('../img/cambridge.jpg') center no-repeat;
 }
 
+.bkg-computer {
+    background: url('../img/computer2.jpg') center no-repeat;
+}
+
+.bkg-black {
+    background: url('../img/black.jpg') center no-repeat;
+}
+
 #btn-fenix {
     background-color:rgba(0,0,0,0);
     color:white;
