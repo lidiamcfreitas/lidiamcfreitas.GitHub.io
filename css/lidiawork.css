@@ -1,5 +1,5 @@
 body {
-    background:url('../img/black.jpg');
+    background:url('../img/brown.jpg');
     background-size:cover;
     background-repeat: no-repeat;
 } 
@@ -42,7 +42,7 @@ body {
 }
 
 .bkg-black {
-    background: url('../img/black.jpg') center no-repeat;
+    background: url('../img/brown.jpg') center no-repeat;
 }
 
 #btn-fenix {
