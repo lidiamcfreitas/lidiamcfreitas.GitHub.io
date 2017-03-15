@@ -1,12 +1,12 @@
 body {
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Visby CF';
     font-weight: 100;
-    font-size: 100%;
+    font-size: 2.3vh;
+    font-style: Light;
     color: white;
-    /* to leave space for the nav bar */
-    padding-top: 8vh; 
+    padding-top: 8vh;
     text-align: center;
-	line-height: 150%;
+    line-height: 150%;
     max-width: 1024px;
     margin: auto;
 }
@@ -17,101 +17,84 @@ a {
 }
 
 #nav {
-	background-color: #ffffff;
-    font-family: 'Kreon';
-	position: fixed;
-    display: flex;
-	z-index: 9999; /* put in front of everything */
-	width: 100%;
-    max-width: 1024px;
-    margin: auto;
+    background-color: #ffffff;
+    position: fixed;
+    display: block;
+    z-index: 9999;
+    width: 100%;
     height: 8vh;
-	top: 0px;
+    top: 0px;
+    left: 0px;
 }
 
-#section1 a { /* book a table button */
+li { 
     display: inline-block;
-    margin-top: 3vh;
-    border-radius: 0.25em;
-	background-color: rgba(0, 0, 0, 0.79);
-	border: 2px solid #ffffff;
-	padding: 1em 2em 1em 2em;
+    margin-left: 5%;
+    margin-right: 5%;
+    vertical-align: middle;
 }
 
-#nav ul {
-    display: flex; 
-    align-items: center;
-    flex: 1;
-}
-
-#nav li {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#contbtns ul {
-    display: flex; 
-    align-items: center;
-    flex: 1;
-}
-
-#contbtns li {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#nav li a {
-	color: black;
-    font-size: 3vh;
+li a {
+    color: black;
+    font-size: 2em;
 }
 
 #logo img {
-	position: relative;
-    top: 3vh;
+    position: relative;
     width: 3em;
+    top: 4vh;
 }
 
 #section1 {
-	background: url('../images/header.jpg')  center no-repeat;
-	background-size: cover;
-	height: 25vh;
+    background: url('../images/header.jpg')  center no-repeat;
+    background-size: cover;
+    height: 25vh;
+    width: 100%;
     padding-top: 15vh;
 }
 
 h1 {
     width: 100%;
-	background-color: black;
-    font-size: 3.5vh;
-    padding: 0.5em 0em;
+    background-color: black;
+    font-size: 3.5em;
+    padding: 0.5em;
 }
 
 h2 {
-   display:absolute;
-   font-size: 2em;
+    display:absolute;
+    font-size: 2.5em;
     text-align: center;
     padding-bottom: 1em;
 }
 
 h3 {
-	font-size: 1.6em;
-	text-align: center;
+    font-size: 1.6em;
+    text-align: center;
     padding: 0.5em;
 }
 
-
+#section1 a {
+    display: inline-block;
+    margin-top: 3vh;
+    border-radius: 0.25em;
+    background-color: rgba(0, 0, 0, 0.79);
+    border: 2px solid #ffffff;
+    padding: 1em 2em 1em 2em;
+}
 
 .transparent-section{
     padding: 5% 15% 5% 15%;
-    text-shadow: 2px 2px 2px #000000;
+    text-shadow: 2px 2px #151515;
     text-align: center;
-    height: 50%;
+}
+
+#section3{
     background: url('../images/small1.jpg') no-repeat center/ cover fixed ;
+    height: 35vh;
 }
 
 .gray-section {
-	background-color: #504040;
+    background-color: #504040;
 }
 
 .gray-section h3 {
@@ -121,19 +104,20 @@ h3 {
 }
 
 .upcoming-event {
-	width: 33.3333333333%;
-	float: left;
+    width: 33.3333333333%;
+    float: left;
+    margin-bottom: 8%;
 }
 
 .past-event {
-	width: 25%;
-	float: left;
+    width: 25%;
+    float: left;
 }
 
 a[href="#event"] {
-	display: inline-block;
-	padding-bottom: 7%;
-	width: 100%;
+    display: inline-block;
+    padding-bottom: 7%;
+    width: 100%;
 }
 
 a[href="#event"] h3 {
@@ -146,24 +130,20 @@ a[href="#event"] p {
     color: white;
 }
 
-a[href="#inner"] {
-	color: #ececec;
-}
-
 .imgdiv{
-	display: inline-block;
-	width: 10em;
-	height: 10em;
-	overflow: hidden;
-	border: 1px solid #aaaaaa;
-	margin-bottom: 15%;
+    display: inline-block;
+    width: 10em;
+    height: 10em;
+    overflow: hidden;
+    border: 1px solid #aaaaaa;
+    margin-bottom: 15%;
 }
 
 .upcoming-event p {
-	width: 95%;
-	padding-left: 2%;
+    width: 65%;
+    margin: auto;
     word-spacing: 0.1em;
-	color: #bfbfbf;
+    color: #bfbfbf;
 }
 
 #upcomingevents, #pastevents {
@@ -174,12 +154,12 @@ a[href="#inner"] {
 }
 
 .imgdiv2{
-	display: inline-block;
-	width: 5em;
-	height: 5em;
-	overflow: hidden;
-	border: 1px solid #aaaaaa;
-	margin-bottom: 15%
+    display: inline-block;
+    width: 5em;
+    height: 5em;
+    overflow: hidden;
+    border: 1px solid #aaaaaa;
+    margin-bottom: 15%
 }
 
 #cmorebutton {
@@ -192,24 +172,24 @@ a[href="#inner"] {
 }
 
 .continfo {
-	width: 90%;
-	height: 2.5em;
-	padding-left: 4%;
-	background-color: #efefef;
-	border-radius: 0.25em;
-	border: 1px solid #dedede;
+    width: 90%;
+    height: 2.5em;
+    padding-left: 4%;
+    background-color: #efefef;
+    border-radius: 0.25em;
+    border: 1px solid #dedede;
 }
 
 #namediv {
-	width: 50%;
-	float: left;
-	text-align: left;
+    width: 50%;
+    float: left;
+    text-align: left;
 }
 
 #emaildiv {
-	width: 50%;
-	float: left;
-	text-align: right;
+    width: 50%;
+    float: left;
+    text-align: right;
 }
 
 #info {
@@ -312,9 +292,9 @@ h2[id="book-head"] {
 }
 
 #bmessagediv {
-	padding-left: 5%;
-	width: 90%;
-	text-align: left;
+    padding-left: 5%;
+    width: 90%;
+    text-align: left;
 }
 
 #bmessage {
@@ -348,13 +328,11 @@ h2[id="book-head"] {
     color: rgb(144, 140, 140);
     text-align: center;
     clear: both;
-    line-height: 2em;
 }
 
 .textLeft{
     width: 30%;
     background-color: rgb(68, 51,51);
-    padding: 5%;
 }
 
 .textLeft h3{
@@ -374,23 +352,26 @@ h2[id="book-head"] {
 }
 
 .textLeft p{
-    text-align: justify;
+    text-align: left;
+    padding-left: 20%;
+    padding-right: 10%;
     color: white;
     line-height: 150%;
 }
 
 .menu_button{
-    margin-top: 5vh;
-    width: 70%;
-    padding: 0% 15%;
+    padding-bottom: 68.4%;
+    padding-left: 30%;
+    padding-top: 7%;
 }
 
 .menu_button .button{
     display: block;
     text-align: center;
-    width: 100%;
-    padding: 5% 0%;
-    background: rgb(68,51,51);
+    width: 70%;
+    padding-top:4%;
+    padding-bottom: 4%;
+    background-color: rgb(68, 51,51);
     border-radius: 0.25em;
 }
 
@@ -400,57 +381,42 @@ h2[id="book-head"] {
 
 .button_word{
     color: white;
-    font-size: 120%;
+    font-size: 140%;
 }
 
 .ImageRight{
-    width: 60%;
+    width: 70%;
     background-color: rgb(68, 51,51);
     padding-top: 7%;
-   	display: flex;
-   	flex-direction: row;
-   	flex-wrap: wrap;
-    padding-bottom: 5%;
-    font-size: 110%;
 }
 
+.ImageRight table td{
+    position: relative;
+    padding: 2%;
+    width: 40%;
+}
 
-.menu-table{
-    display: flex;
-    flex-direction: row;
+.ImageRight table td img{
     width: 100%;
-	background-color: rgb(68,51,51);
+    border-radius: 0.25em;
+    height: 80%;
 }
 
-.ImageRight .description{
-  padding: 2% 0% 2% 4%;
-  position: relative;
-  top: -30%;
-  width: 96%;
-  background: black;
-  text-align: left;
-  opacity: 0.8;
-  font-size: 0.8em;
+.ImageRight table td .description{
+    padding: 2% 0% 4% 2%;
+    position: absolute;
+    top: 50%;
+    width: 91%;
+    background: black;
+    text-align: left;
+    opacity: 0.8;
 }
 
-.ImageRight .description .caption{
-  color: white;
-  border-bottom: 1px dashed #999;
-  text-decoration: none;
+.ImageRight table td .description .caption{
+    color: white;
+    border-bottom: 1px dashed #999;
+    text-decoration: none;
 }
-.ImageRight .forimage{
-	width: 100%;
-	border-radius: 0.25em;
-	position: relative;
-}
-
-.imageBlock{
-	position: relative;
-	width: 40%;
-    padding: 0.7em;
-    
-}
-
 
 #footerl {
     margin-top: 5em;
@@ -464,33 +430,20 @@ h2[id="book-head"] {
     float: right;
 }
 
-#author ul{
-    display: flex;
-    flex-direction: row;
+#author {
+    clear: both;
     margin-top: 35em;
     color: #adadad;
-    width: 100%;
     font-size: 0.6em;
     margin-bottom: 0.5em;
 }
 
 #author li {
-    width: 50vw;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
-
-@media screen and (min-width: 768px) and (max-width: 1023px){
-   .menu-table{
-		display: flex;
-		flex-direction: row;
-	}
-    
-   .ImageRight{
-   	    display: flex;
-   	    flex-direction: row;
-   	    flex-wrap: wrap;
-   }
-    
+@media screen and (max-width: 1024px) {
     #info {
         display: flex;
         justify-content: space-between;
@@ -502,58 +455,9 @@ h2[id="book-head"] {
         padding-left: 22%;
         padding-right: 22%;
     }
-    
-    #footerl, #footerr {
-        font-size: 0.9em;
-    }
-    
 }
 
-@media screen and (min-width: 480px) and (max-width: 767px){
-	.menu-table{
-		display: flex;
-		flex-direction: row;
-	}
-	.textLeft{
-		/*float: none;*/
-        display: flex;
-        flex-direction: column;
-		width: 100%;
-        padding: 5%;
-	}
-    
-    
-    .textLeft h3{
-        margin-top: 70%;
-    }
-    .textLeft h2{
-        height: 5%;
-    }
-    
-    .textLeft p{
-        height: 15%;
-        word-spacing: 0.3em;
-        line-height: 2em;
-        text-align: justify;
-        
-    }
-    
-    .menu_button{
-        width: 70%;
-        padding: 20% 15%;
-        
-    }
-	.ImageRight{
-		width: 100%;
-	}
-
-	.imageBlock{
-		/*float: none;*/
-		width: 80%;
-		padding-left: 11%;
-		padding-right: 10%;
-	}
-    
+@media screen and (max-width: 768px) {
     #upcomingevents {
         display: flex;
         flex-direction: column;
@@ -563,9 +467,8 @@ h2[id="book-head"] {
 
     .upcoming-event {
         margin: auto;
-        width: 80%;
-        padding: 0% 10%;
-        margin-bottom: 1em;
+        width: 100%;
+        margin-bottom: 2em;
     }
 
     a[href="#event"] {
@@ -646,7 +549,6 @@ h2[id="book-head"] {
         flex-direction: column;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding-bottom: 0vh;
     }
 
     #footerl, #footerr {
@@ -661,69 +563,10 @@ h2[id="book-head"] {
         margin-top: 1em;
         margin-bottom: 1em;
     }
-
 }
 
-@media only screen and (max-width: 479px){
-	.menu-table{
-		display: flex;
-		flex-direction: column;
-	}
-	.textLeft{
-		/*float: none;*/
-		width: 100%;
-		padding-left: 0%;
-		padding-bottom: 16%;
-	}
-	.textLeft p{
-		padding-left: 10%;
-		padding-right: 10%;
-	}
-    .menu_button{
-        margin-top: 10%;
-        width: 70%;
-        padding: 0% 15%;
-    }
-	.ImageRight{
-		width: 100%;
-	}
-	.imageBlock{
-		/*float: none;*/
-		width: 80%;
-		padding: 0% 10%;
-	}
-    
-    /* for the navbar */
-    #nav ul {
-        padding-top: 1vh;
-        flex-direction: row;
-        display: flex; 
-    }
-    
-    #nav {
-        height: 12vh;
-    }
-    
-    body {
-        padding-top: 12vh;
-    }
-    
-    #logo {
-        order: -1;
-        margin-top: -5vh;
-    }
-    
-    #logo img {
-        width: 3em;
-    }
-    
-    #nav li a {
-    font-size: 2vh;
-    }
-    
-    /* end navbar */
-    
-        #upcomingevents {
+@media screen and (max-width: 480px) {
+    #upcomingevents {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -733,7 +576,7 @@ h2[id="book-head"] {
     .upcoming-event {
         margin: auto;
         width: 100%;
-        margin-bottom: 1em;
+        padding-top: 3em;
     }
 
     #pastevents {
