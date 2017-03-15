@@ -1,0 +1,576 @@
+body {
+    font-family: 'Roboto',sans-serif;
+    font-weight: 100;
+    font-size: 100%;
+    color: white;
+    /* to leave space for the nav bar */
+    padding-top: 8vh; 
+    text-align: center;
+	line-height: 150%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#nav {
+	background-color: #ffffff;
+    font-family: 'Kreon';
+	position: fixed;
+    display: flex;
+	z-index: 9999; /* put in front of everything */
+	width: 100%;
+    height: 8vh;
+	top: 0px;
+	left: 0px;
+}
+
+ul {
+    display: flex; 
+    align-items: center;
+    flex: 1;
+}
+
+li {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 4vh;
+}
+
+li a {
+	color: black;
+    font-size: 2em;
+}
+
+#logo {
+    top: 4vh;
+}
+
+#logo img {
+	position: relative;
+    width: 3em;
+}
+
+#section1 {
+	background: url('../images/header.jpg')  center no-repeat;
+	background-size: cover;
+	height: 25vh;
+	width: 100%;
+    padding-top: 15vh;
+}
+
+h1 {
+    width: 100%;
+	background-color: black;
+    font-size: 3.5em;
+    padding: 0.5em 0em;
+}
+
+h2 {
+   display:absolute;
+   font-size: 2em;
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+h3 {
+	font-size: 145%;
+	text-align: center;
+    padding: 0.5em;
+}
+
+#section1 a {
+    display: inline-block;
+    margin-top: 3vh;
+    border-radius: 0.25em;
+	background-color: rgba(0, 0, 0, 0.79);
+	border: 2px solid #ffffff;
+	padding: 1em 2em 1em 2em;
+}
+
+.transparent-section{
+    padding: 5% 15% 5% 15%;
+    text-shadow: 2px 2px 2px #000000;
+    text-align: center;
+    height: 50%;
+}
+
+#section3{
+    background: url('../images/small1.jpg') no-repeat center/ cover fixed ;
+}
+
+.gray-section {
+	background-color: #504040;
+}
+
+.upcoming-event {
+	width: 33.3333333333%;
+	float: left;
+	margin-bottom: 8%;
+}
+
+.past-event {
+	width: 25%;
+	float: left;
+}
+
+a[href="#event"] {
+	display: inline-block;
+	padding-bottom: 7%;
+	width: 100%;
+}
+a[href="#inner"] {
+	color: #ececec;
+}
+
+.imgdiv{
+	display: inline-block;
+	width: 10em;
+	height: 10em;
+	overflow: hidden;
+	border: 1px solid #aaaaaa;
+	margin-bottom: 15%;
+}
+
+.upcoming-event p {
+	width: 95%;
+	padding-left: 2%;
+	color: #bfbfbf;
+}
+
+.imgdiv2{
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	overflow: hidden;
+	border: 1px solid #aaaaaa;
+	margin-bottom: 15%
+}
+
+#cmorebutton {
+	color: white;
+	background-color: black;
+	width: 13em;
+	height: 4em;
+    margin: 3em;
+	border-radius: 0.25em;
+}
+
+.continfo {
+	width: 90%;
+	height: 2.5em;
+	padding-left: 4%;
+	background-color: #efefef;
+	border-radius: 0.25em;
+	border: 1px solid #dedede;
+}
+
+#namediv {
+	width: 50%;
+	float: left;
+	text-align: left;
+}
+
+#emaildiv {
+	width: 50%;
+	float: left;
+	text-align: right;
+}
+
+#info {
+	padding-left: 24%;
+	padding-right: 24%;
+	padding-bottom: 5%;
+}
+
+#message {
+	width: 97.5%;
+	height: 15em;
+	padding-left: 2%;
+	padding-top: 2%;
+	background-color: #efefef;
+	border-radius: 0.25em;
+	border: 1px solid #dedede;
+}
+
+#messagediv {
+	padding-left: 24%;
+	padding-right: 24%;
+}
+
+#send {
+	background-color: #333333;
+	color: white;
+	width: 100%;
+	height: 4em;
+	border-radius: 0.25em;
+	border: 0px;
+}
+
+#sendbtn {
+	text-align: left;
+	width: 15%;
+	padding-top: 1.5%;
+	padding-bottom: 2%;
+	padding-right: 0.3%;
+}
+
+#clear {
+	background-color: white;
+	color: gray;
+	width: 100%;
+	height: 4em;
+	border-radius: 0.25em;
+	border: 1px solid #dedede;
+}
+
+#clearbtn {
+	text-align: right;
+	width: 15%;
+	padding-top: 1.5%;
+	padding-bottom: 2%;
+	padding-left: 0.3%;
+}
+
+#booking {
+	text-align: center;
+    background: url("../images/book-table.jpg") no-repeat center/ cover fixed ;
+	padding-left: 30%;
+	padding-right: 30%;
+	margin-top: 1.5%;
+}
+
+#bookinner {
+	background: rgba(0,0,0,0.6);
+	height: 100%;
+}
+
+h2[id="book-head"] {
+	color: white;
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+
+.lbdiv {
+	width: 45%;
+	float: left;
+	text-align: left;
+	padding-left: 5%;
+	margin-bottom: 3%;
+}
+
+.rbdiv {
+	width: 45%;
+	float: left;
+	text-align: right;
+	margin-bottom: 3%;
+}
+
+.binfo {
+	padding-left: 4%;
+	border-radius: 0.25em;
+	height: 2.5em;
+	width: 90%;
+	border: 1px solid #dedede;
+}
+
+#bmessagediv {
+	padding-left: 5%;
+	width: 90%;
+	text-align: left;
+}
+
+#bmessage {
+	width: 97%;
+	border-radius: 0.25em;
+	padding-left: 2%;
+	padding-top: 2%;
+	height: 15em;
+	border: 1px solid #dedede;
+}
+
+#bookbtn {
+	background-color: #555555;
+	width: 11em;
+	height: 4em;
+	color: white;
+	border-radius: 0.25em;
+	border: 0px;
+}
+
+#bform {
+	padding-bottom: 3%;
+}
+
+.menu-table{
+	width: 100%;
+	background-color: rgb(68,51,51);
+}
+
+.white-section{
+    background-color: #FBFBF9;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: rgb(144, 140, 140);
+    text-align: center;
+    clear: both;
+}
+
+.white-section_transparent{
+	background-color: #FBFBF9;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: rgb(144, 140, 140);
+    text-align: center;
+    clear: both;
+    height: 50%;
+}
+
+
+.textLeft{
+    width: 25%;
+    background-color: rgb(68, 51,51);
+    /*float: left;*/
+    padding-left: 10%;
+    padding-bottom: 24%;
+}
+
+.textLeft h3{
+   display:absolute;
+   text-align: center;
+   font-size: 130%;
+   color: white;
+   padding-top: 20%;
+   padding-bottom: 10%;
+}
+
+.textLeft h2{
+   text-align: center;
+   font-size: 100%;
+   color: white;
+   padding-bottom: 5%;
+}
+
+.textLeft p{
+   text-align: justify;
+   color: white;
+   line-height: 150%;
+}
+
+.menu_button{
+    padding-top: 7%;
+}
+
+.menu_button .button{
+    display: block;
+    text-align: center;
+    width: 86%;
+    padding-left: 5%;
+    padding-top:5%;
+    padding-bottom: 5%;
+    background: rgb(68,51,51);
+    border-radius: 0.25em;
+}
+
+.menu_button .button:hover{
+    background-color: rgba(59,83,45,0.8);
+}
+
+.button_word{
+    color: white;
+    font-size: 120%;
+}
+
+.ImageRight{
+  width: 60%;
+  background-color: rgb(68, 51,51);
+  padding-top: 7%;
+  padding-bottom: 5%;
+  /*float: left;*/
+  font-size: 110%;
+}
+
+
+.ImageRight .description{
+  padding: 2% 0% 4% 2%;
+  position: absolute;
+  top: 55%;
+  width: 89%;
+  background: black;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.ImageRight .description .caption{
+  color: white;
+  border-bottom: 1px dashed #999;
+  text-decoration: none;
+}
+.ImageRight .forimage{
+	width: 100%;
+	border-radius: 0.25em;
+	position: relative;
+}
+
+.imageBlock{
+	position: relative;
+	width: 40%;
+	padding-bottom: 6%;
+	padding-left: 4%;
+}
+
+@media screen and ( min-width:1024px ) {
+	.menu-table{
+		display: flex;
+		flex-direction: row;
+	}
+   .imageBlock{
+   	  /*float: left;*/
+   }
+   .ImageRight{
+   	display: flex;
+   	flex-direction: row;
+   	flex-wrap: wrap;
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+   .menu-table{
+		display: flex;
+		flex-direction: row;
+	}
+   .imageBlock{
+   	  /*float: left;*/
+   }
+   .ImageRight{
+   	display: flex;
+   	flex-direction: row;
+   	flex-wrap: wrap;
+   }
+}
+
+@media screen and (min-width: 480px) and (max-width: 767px){
+	.menu{
+		display: flex;
+		flex-direction: column;
+	}
+	.textLeft{
+		/*float: none;*/
+		width: 100%;
+		padding-left: 0%;
+		padding-bottom: 9%;
+	}
+	.textLeft p{
+        padding-left: 10%;
+        padding-right: 10%;
+	}
+	.menu_button{
+		padding-left: 24%;
+		padding-right: 12%;
+		padding-right: 5%;
+	}
+	.menu_button .button{
+		width: 76%;
+		padding-left: 3%;
+		padding-top: 5%;
+		padding-right: 6%;
+	}
+	.ImageRight{
+		/*float: none;*/
+		width: 100%;
+	}
+
+	.imageBlock{
+		/*float: none;*/
+		width: 80%;
+		padding-left: 11%;
+		padding-right: 10%;
+	}
+	.ImageRight .forimage{
+		width: 89%;
+	}
+	.ImageRight .description{
+		padding: 2% 2% 3% 3%;
+		top:57%;
+		left: 15%;
+		width: 69%;
+	}
+	.ImageRight .description .caption{
+		font-size: 80%;
+	}
+
+}
+
+@media only screen and (max-width: 479px){
+	.menu{
+		display: flex;
+		flex-direction: column;
+	}
+	.textLeft{
+		/*float: none;*/
+		width: 100%;
+		padding-left: 0%;
+		padding-bottom: 16%;
+	}
+	.textLeft p{
+		padding-left: 10%;
+		padding-right: 10%;
+	}
+	.menu_button{
+		padding-left: 24%;
+		padding-top: 12%;
+		padding-right: 6%;
+	}
+	.menu_button .button{
+		width: 76%;
+		padding-left: 3%;
+		padding-top: 5%;
+		padding-bottom: 5%;
+	}
+	.ImageRight{
+		/*float: none;*/
+		width: 100%;
+	}
+	.imageBlock{
+		/*float: none;*/
+		width: 80%;
+		padding-left: 11%;
+		padding-right: 10%;
+	}
+	.ImageRight .forimage{
+		width: 89%;
+	}
+	.ImageRight .description{
+		padding: 2% 2% 3% 3%;
+		top: 57%;
+		left: 15%;
+		width: 66%;
+	}
+	.ImageRight .description .caption{
+		font-size: 80%;
+	}
+    
+    ul {
+        padding-top: 1vh;
+        flex-direction: column;
+        font-size: 1em;
+    }
+    
+    #nav {
+        height: 20vh;
+    }
+    
+    body {
+        padding-top: 20vh;
+    }
+    
+    #logo {
+        order: 1;
+    }
+}
