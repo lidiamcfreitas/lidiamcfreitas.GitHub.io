@@ -41,15 +41,12 @@ li {
 
 li a {
 	color: black;
-    font-size: 2em;
-}
-
-#logo {
-    top: 4vh;
+    font-size: 3vh;
 }
 
 #logo img {
 	position: relative;
+    top: 3vh;
     width: 3em;
 }
 
@@ -563,11 +560,12 @@ h2[id="book-head"] {
     }
     
     #nav {
-        height: 20vh;
+        height: 24vh;
+        font-size: 
     }
     
     body {
-        padding-top: 20vh;
+        padding-top: 24vh;
     }
     
     #logo {
