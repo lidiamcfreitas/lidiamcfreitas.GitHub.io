@@ -395,7 +395,7 @@ h2[id="book-head"] {
 }
 
 .menu_button .button:hover{
-    background-color: rgb(54,85,41);
+    background-color: rgba(54,85,41,0.4);
 }
 
 .button_word{
@@ -658,7 +658,7 @@ h2[id="book-head"] {
     }
 
     #author {
-        margin-top: 1em;
+        margin-top: -25em;
         margin-bottom: 1em;
     }
 
@@ -833,7 +833,7 @@ h2[id="book-head"] {
     }
 
     #author {
-        margin-top: 1em;
+        margin-top: -25em;
         margin-bottom: 1em;
     }
 }
