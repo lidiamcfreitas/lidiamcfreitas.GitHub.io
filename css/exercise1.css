@@ -673,6 +673,8 @@ h2[id="book-head"] {
 		/*float: none;*/
 		width: 100%;
 		padding-left: 0%;
+        padding-right: 0%;
+        max-width: 1024px;
 		padding-bottom: 16%;
 	}
 	.textLeft p{
