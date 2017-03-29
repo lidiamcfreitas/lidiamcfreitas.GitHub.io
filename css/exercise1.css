@@ -422,15 +422,25 @@ h2[id="book-head"] {
 	background-color: rgb(68,51,51);
 }
 
-.ImageRight .description{
+.ImageRight .imageBlock .description{
   padding: 2% 0% 2% 4%;
+  display: table;
   position: relative;
   top: -30%;
   width: 96%;
-  background: black;
+  height: 15%; 
+  background: rgb(0, 0, 0);
   text-align: left;
-  opacity: 0.8;
   font-size: 0.8em;
+  transition: all 1s;
+}
+
+.ImageRight .imageBlock .description:hover{
+    height: 74%;
+    top: -82%;
+    background: linear-gradient(to bottom, rgba(255, 100, 100, 1),rgba(255,100,100,0));
+    border-radius: 0.25em;
+    text-align: center;
 }
 
 .ImageRight .description .caption{
@@ -438,6 +448,30 @@ h2[id="book-head"] {
   border-bottom: 1px dashed #999;
   text-decoration: none;
 }
+
+.ImageRight .description .word{
+    display: table-cell;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out, right 1s;
+    height: 130%;
+    margin-top: -2%;
+    margin-left: -5%;
+    padding-left: 5%;
+    transition-delay: 0.1s;
+}
+
+.ImageRight .description > .word:hover{
+    display: table-cell;
+    vertical-align: middle;
+    transform:rotateY(360deg);
+}
+
+/*.ImageRight .description .word .caption:hover{  */
+/*    transform: translateY(40%);*/
+/*}*/
+
+
+
 .ImageRight .forimage{
 	width: 100%;
 	border-radius: 0.25em;
@@ -477,6 +511,101 @@ h2[id="book-head"] {
 #author li {
     width: 50vw;
 }
+@-webkit-keyframes popup {
+  0% {opacity: 0;}
+  25% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+@-webkit-keyframes close {
+  0% {opacity: 1;}
+  75% {opacity: 0.5;}
+  100% {opacity: 0;}
+}
+/* Add animation (Standard syntax) */
+/*@keyframes popup {*/
+/*  0% {opacity: 0;}*/
+/*  25% {opacity: 0.5;}*/
+/*  100% {opacity: 1;}*/
+/*}*/
+/*@keyframes close {*/
+/*  0% {opacity: 1;}*/
+/*  75% {opacity: 0.5;}*/
+/*  100% {opacity: 0;}*/
+/*}*/
+
+.popup .modaldialog{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width:100%;
+    height: 100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    pointer-events:none;
+
+
+}
+.popup .modaldialog:target{
+    
+    opacity: 1;
+    pointer-events: auto;
+    display:table;
+    z-index: 99999;
+/*    vertical-align: middle;*/
+}
+
+.Position_modal{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.Position_modal .box_modal{
+    padding: 1%;
+    border:1px;
+    border-radius:0.2em;
+    background:rgb(255,253,254);
+    position: relative;
+    text-align: center;
+    width: 40%;
+    margin: auto;   
+}
+
+.Position_modal h3{
+    font-size: 0.7em;
+    float: left;
+    color: black;
+}
+
+.Position_modal .close{
+    float: right;
+    font-size: 2em;
+    color: black;
+/*    padding-right: 10%;*/
+    border-bottom: 1px dotted;
+    font-weight:1000%;
+}
+
+.Position_modal .modal_image{
+    width: 90%;
+    padding-bottom: 7%;
+    padding-top: 2%;
+/*    float: right;*/
+}
+
+
+.Position_modal p{
+    clear:both;
+    color:black;
+    padding-bottom:3%;
+    text-align:left;
+    font-size:0.8em;
+}
+
+
+
+
 
 
 @media screen and (min-width: 768px) and (max-width: 1023px){
@@ -515,7 +644,7 @@ h2[id="book-head"] {
 		flex-direction: row;
 	}
 	.textLeft{
-		/*float: none;*/
+		float: none;
         display: flex;
         flex-direction: column;
 		width: 100%;
