@@ -5,9 +5,9 @@ date: 2018-06-28 14:24
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- markdown
-- components
-- extra
+- tech
+- interviews
+- study
 category: blog
 author: lidiamcfreitas
 description: Tips and Tricks for Interview Preparation
