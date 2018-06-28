@@ -1,6 +1,6 @@
 # main text of home
 name: Lidia Freitas
-bio: A Woman who travels the world eating noodles
+bio: A Woman who travels the world eating sushi :) 
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -58,7 +58,7 @@ email: lidiamcfreitas@gmail.com
 authors:
     lidiamcfreitas:
         name: Lidia Freitas
-        bio: A Woman who travels the world eating noodles
+        bio: A Woman who travels the world eating sushi :) 
         external-image: false
         picture: assets/images/profile.jpg
         # twitter: nothing
