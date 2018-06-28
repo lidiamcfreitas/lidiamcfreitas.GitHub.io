@@ -1,0 +1,99 @@
+body {
+    background:url('../img/brown.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+} 
+
+.white-border {
+    border-radius: 10px;
+    background-color: rgba(0,0,0,0.8);
+    color:white;
+}
+
+.text-white {
+    color:white;   
+}
+
+#calendar-tests {
+    border-width:0;
+    padding:0px;
+    border-radius:10px;
+}
+
+.fixar-foto {
+    overflow: hidden;
+    background-color: transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;   
+}
+
+.bkg-cambdrige {
+    background: url('../img/cambridge.jpg') center no-repeat;
+}
+
+.bkg-computer {
+    background: url('../img/computer2.jpg') center no-repeat;
+}
+
+.bkg-black {
+    background: url('../img/brown.jpg') center no-repeat;
+}
+
+#btn-fenix {
+    background-color:rgba(0,0,0,0);
+    color:white;
+}
+
+.bkg-tc {
+    background-image: url(../img/tc.jpg);   
+}
+
+.bkg-ie {
+    background-image: url(../img/athens2.jpg);   
+}
+
+.content-collapse {
+    display: none;
+}
+
+.header-collapse {
+    cursor: pointer;   
+}
+
+@import url("//fonts.googleapis.com/css?family=Open+Sans:400,700,600");
+
+#pomodoro       { background:#0D5B85; font-family:"Open Sans"; font-weight:400; padding:30px; text-align:center; }
+
+#message    { color:#DDD; font-size:50px; margin-bottom:20px; }
+
+#timer     { color:#DDD; font-size:200px; margin-bottom:40px; }
+
+#buttons button       { background:#002852; border:none; color:#DDD; cursor:pointer; padding:15px 30px; margin:0 auto; border-radius:4px; }
+#stop, #reset { display:none; }
+
+aside {
+    border-top: 5px solid white;   
+}
+
+.fixarFotoFim {
+    overflow: hidden;
+    background: url('../img/lidia_opti.png') center no-repeat;
+    background-color: transparent;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-repeat: no-repeat;
+    padding-top: 600px
+}
+
+
