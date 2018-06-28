@@ -42,5 +42,6 @@ I will keep this post updated with my progress and maybe someone will find it us
 
 ## 1 - Brush up on Algorithms
 
+As a start I decided that it would be nice to review all those algorithm courses I took in my bachelor and what's better than the online courses that explained me the material during those years? So I decided to head to [Coursera](www.coursera.org) and revised the [Princeton University's Algorithms MOOCs](https://www.coursera.org/learn/algorithms-part1) given by the Algorithms legend itself: Professor Robert Sedgewick!
 
 <div class="breaker"></div>
