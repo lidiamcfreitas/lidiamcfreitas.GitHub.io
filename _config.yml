@@ -35,12 +35,12 @@ permalink: /:title/
 #  categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
-# facebook: myfacebook
+facebook: lidiamcfreitas
 # twitter: mytwitter
 # google: mygoogle
 # instagram: myinstagram
 # pinterest: mypinterest
-# linkedin: mylinkedin
+linkedin: lidiamcfreitas
 # youtube: myyoutube
 # spotify: myspotify
 github: lidiamcfreitas
