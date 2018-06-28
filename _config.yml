@@ -18,12 +18,12 @@ resume-url: https://www.linkedin.com/in/lidiamcfreitas/
 
 # url: https://koppl.in/indigo
 # your url: http://USERNAME.github.io
-url: https://lidiamcfreitas.github.io/
+url: lidiafreitas.space
 
 permalink: /:title/
 
 # To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
+analytics-google: 'UA-121546611-1'
 
 # To enable piwik tracking, supply your url & site ID below
 # analytics-piwik-url: 'piwik.my-host.com'
@@ -52,7 +52,7 @@ github: lidiamcfreitas
 # medium: medium
 # vimeo: myvimeo
 # lanyrd: mylanyrd
-# email: myemail@gmail.com
+email: lidiamcfreitas@gmail.com
 
 authors:
     lidiamcfreitas:
