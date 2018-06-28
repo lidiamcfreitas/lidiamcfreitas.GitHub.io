@@ -15,9 +15,9 @@ description: Tips and Tricks for Interview Preparation
 ---
 
 # Summary
-I have started preparing for tech interviews a couple of months ago, doing some leetcode problems, some online interviews at interviewbit, among other things. But now, that I'm mid way in my master thesis I feel like I should start preparing more thoroughly.
+I have started preparing for tech interviews a couple of months ago, doing some leetcode problems, some online interviews at interviewbit, among other things. But now that I'm mid way in my master thesis I feel like I should start preparing more thoroughly.
 
-I will keep this post updated with my progress and maybe someone will find it usefull in the future to know what works and what didn't for me. Please keep in mind that this is my personal view and can not be the best, or the most suitable for you :) 
+I will keep this post updated with my progress and maybe someone will find it usefull in the future to know what did work and what didn't for me. Please keep in mind that this is my personal view and it's possibly not be the best or the most suitable for you :) 
 
 ---
 
