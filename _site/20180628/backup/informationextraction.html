@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lídia Freitas</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
+
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    <link rel="stylesheet" href="css/lidiawork.css" type="text/css">
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="index.html">Lídia Freitas</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#restaurant">Restaurant</a>
+                    </li>
+                    <li>
+                        <a id="arrow-top" class="page-scroll" href="#page-top"><span class="fa fa-arrow-up fa-2x"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header class="bkg-ie">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>Information Extraction @ATHENS</h1>
+                <h2>Thanks Fabian Suchanek and Luis Galárraga for the amazing course</h2>
+                <hr>
+                <p>Lídia Freitas</p>
+                <a target="_blank" href="https://pt.linkedin.com/in/lidiamcfreitas" class="btn btn-primary btn-xl page-scroll">CV</a>
+            </div>
+        </div>
+    </header>
+    
+    <aside class="bg-dark header-collapse" id="doc">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <h2>Favourite Restaurant</h2>
+            </div>
+        </div>
+    </aside>
+    <section class="no-padding content-collapse" id="restaurant">
+        <div class="container-fluid">
+            <div class="row no-gutter">
+                <div class="col-lg-4 col-sm-6">
+                    <a target="_blank" href="http://www.sushic.pt/" class="portfolio-box">
+                        <img src="img/sushic.jpg" class="img-responsive" alt="">
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Sushic
+                                </div>
+                                <div class="project-name">
+                                    Sushi restaurant
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        <div vocab="http://schema.org/" typeof="FoodEstablishment">
+          <span property="name">Sushic</span>
+          <div property="aggregateRating" typeof="AggregateRating">
+            <span property="ratingValue">5</span> stars -
+            based on my review
+          </div>
+          <span property="address" typeof="PostalAddress">
+            <span class="format_address">
+                <span class="street-address" property="streetAddress">Rua Abel Salazar n9 - 9A</span>, <span class="locality">
+                <span property="addressLocality">Almada</span> <br>
+                <span property="postalCode">2805-313</span>,
+                </span><span class="country-name" property="addressCountry">Portugal</span>
+                <span property="addressRegion" content="Alentejo"> </span><br>
+            </span>
+          </span>
+          <span property="telephone">+351 211 911 965</span><br> 
+            Website: <a property="url" href="http://www.sushic.pt/">www.sushic.pt/</a>
+          <br>Hours:<br>
+          <meta property="openingHours" content="Mo-Su 12:00-15:00">Mon-Sun 12am - 3:00pm<br>
+          <meta property="openingHours" content="Mo-Su 19:30-23:00">Mon-Sun 7:30pm - 23:00pm<br>
+          Categories:
+          <span property="servesCuisine">
+            Japanese
+          </span>,
+          
+          Price Range: <span property="priceRange">$$$</span><br>
+            Payment accepted:<span property="paymentAccepted">Cash, credit card</span><br>
+            Awards: <span property="award">2nd best Japanese restaurant outside Japan</span><br>
+           <a property="hasMap" href="https://goo.gl/KBd66K">Map</a>
+        -     <a property="menu" href="https://goo.gl/jCtaHu">Menu</a><br>
+        Accepts reservations: <span property="acceptsReservations">Yes</span><br> 
+            
+        </div>
+    </div>
+    </section>
+        
+    <aside class="bg-dark" style="padding: 20px 0px;">
+        <div class="container text-center">
+            <div class="call-to-action">
+                <a id="btn-fenix" target="_blank" href="https://github.com/lidiamcfreitas/Information-Extraction---Athens" class="btn btn-default btn-xl">Check all lab files on github!</a>
+            </div>
+        </div>
+    </aside>
+
+    <aside class="bg-black" >
+        <div class="container text-center">
+        <h2>Github</h2>
+        <a target="_blank" href="https://github.com/lidiamcfreitas" class="btn btn-default btn-xl wow tada">github.com/lidiamcfreitas</a>
+        </div>
+    </aside>
+    <aside class="callout fixarFotoFim">
+    </aside>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+    <script>
+            "use strict";
+        var bigTime = Number(localStorage.getItem("pomodoro-time")); // time in seconds
+        localStorage.setItem("pomodoro-time", bigTime.toString());
+        var mode = "normal";
+        var animation = "fadeToBlack";
+
+        var color = "0D5B85";
+        var percent;
+
+        var mins;
+        var secs;
+        
+        var cntr = 0;
+
+        var countdownID;
+
+        // get all the elements
+        var minutes = document.getElementById("minutes");
+        var seconds = document.getElementById("seconds");
+        var message = document.getElementById("message");
+        var counts = document.getElementById("counts");
+
+
+        // register the buttons
+        var start = document.getElementById("start");
+        start.addEventListener("click", startTimer, false);  
+
+        var stop = document.getElementById("stop");
+        stop.addEventListener("click", stopTimer, false);
+
+        var reset = document.getElementById("reset");  
+        reset.addEventListener("click", resetTimer, false);
+        
+        var timerString = "";
+
+        // COUNTER ========================================================
+        function counter() {
+
+          // calculate the minutes and seconds from bigTime
+          mins = Math.floor(bigTime / 60);
+          secs = bigTime - mins * 60;
+
+          // change the HTML to show new minutes and seconds
+          minutes.innerHTML = (mins < 10 ? '0' : '') + mins;
+          seconds.innerHTML = (secs < 10 ? '0' : '') + secs;
+            
+            timerString = ' ' + minutes.innerHTML + ':' + seconds.innerHTML;
+            $("#text-pomodoro").text('Pomodoro:'+timerString);
+            document.title = "Lídia Freitas" + timerString;
+
+          // handle the animations
+            var divisor = 300;
+
+            percent = secs / divisor;
+            color = "#"+shadeColor(color, -percent);
+            document.getElementById("pomodoro").style.background = "#" + color;
+            divisor - 100;
+
+          // change the message at 00
+          // switch modes if timer ends
+          if (bigTime == 0) {
+
+            if (mode == "normal") {
+
+              // cooldown is 5min 
+              mode = "cooldown";    
+              bigTime = 300;
+            localStorage.setItem("pomodoro-time", bigTime.toString());
+                message.innerHTML = "Pause";
+                document.getElementById("text-pomodoro").style.color = "#15c328";
+
+            } else if (mode == "cooldown") {
+
+              // switch back to normal 25min mode
+              mode = "normal";    
+              bigTime = 1499;  
+                localStorage.setItem("pomodoro-time", bigTime.toString());
+              minutes.innerHTML = "25";
+              seconds.innerHTML = "00";
+
+            message.innerHTML = "You did it! Prepare for the next round";
+                document.getElementById("text-pomodoro").style.color = "#222";
+
+              document.body.style.background = "#" + color;
+            
+              // show start button
+              start.style.display = "block"; 
+              stop.style.display = "none"; 
+              reset.style.display = "none"; 
+
+              // stop timer
+              clearInterval(countdownID);
+                startTimer();
+                cntr = cntr + 1;
+                counts.innerHTML = "times: "+cntr;
+            }    
+
+          } else {
+            // decrement
+            bigTime = bigTime - 1; 
+              localStorage.setItem("pomodoro-time", bigTime.toString());
+            
+          }
+        }
+
+        // ACTIONS =======================================================
+
+        // start timer
+        function startTimer() {
+            bigTime = Number(localStorage.getItem("pomodoro-time"));
+            localStorage.setItem("pomodoro-time", bigTime.toString());
+          // start timer
+          countdownID = setInterval("counter()", 1000);
+
+          // show message
+          message.innerHTML = "Slow and steady wins something";
+
+          // show stop button
+          start.style.display = "none"; 
+          stop.style.display = "block"; 
+          reset.style.display = "none"; 
+        } 
+
+        // stop timer
+        function stopTimer() {
+          // change message
+          message.innerHTML = "Why are you such a quitter?";
+
+          // stop timer
+          clearInterval(countdownID);
+
+          // show reset button
+          start.style.display = "block"; 
+          stop.style.display = "none"; 
+          reset.style.display = "none"; 
+        }
+
+
+        // ANIMATIONS ================================================ 
+        function fadeToBlack() {
+
+        }
+
+        function colorChange() {
+
+        }
+
+        // HELPER FUNCTIONS ============================================ 
+        function shadeColor(color, percent) {   
+            var num = parseInt(color,16),
+            amt = Math.round(2.55 * percent),
+            R = (num >> 16) + amt,
+            B = (num >> 8 & 0x00FF) + amt,
+            G = (num & 0x0000FF) + amt;
+            return (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
+        }
+    </script>
+
+    <script>
+    $(".header-collapse").click(function () {
+
+    $header = $(this);
+    //getting the next element
+    $content = $header.next();
+    //open up the content needed - toggle the slide- if visible, slide up, if not slidedown.
+    $content.slideToggle(500, function () {
+        //execute this after slideToggle is done
+        //change text of header based on visibility of content div
+        $("#btn-pomodoro").text(function () {
+            //change text based on condition
+            return $content.is(":visible") ? "Hide Pomodoro" : "Click for Pomodoro!";
+        });
+    });
+
+});
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('.slick-8tracks').slick({
+              dots: true
+            });
+            $('#arrow-top').click();
+        });
+        
+    </script>
+</body>
+
+</html>
