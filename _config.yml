@@ -14,10 +14,11 @@ picture: assets/images/profile.jpg
 # and specify source (external or local).
 resume: true
 resume-external: true
-resume-url: https://google.com/?q=my+resume
+resume-url: https://www.linkedin.com/in/lidiamcfreitas/
 
 # url: https://koppl.in/indigo
 # your url: http://USERNAME.github.io
+url: https://lidiamcfreitas.github.io/
 
 permalink: /:title/
 
@@ -29,9 +30,9 @@ permalink: /:title/
 # analytics-piwik-id: 1
 
 # if you don't want comments in your posts, leave categories empty
-disqus:
-  shortname: mydisqus # enter this from your disqus account
-  categories: [blog, project] # only show disqus for posts that have these categories
+# disqus:
+#  shortname: mydisqus # enter this from your disqus account
+#  categories: [blog, project] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
 # facebook: myfacebook
@@ -42,7 +43,7 @@ disqus:
 # linkedin: mylinkedin
 # youtube: myyoutube
 # spotify: myspotify
-# github: mygithub
+github: lidiamcfreitas
 # gitlab: mygitlab
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
@@ -59,7 +60,7 @@ authors:
         bio: A Woman who travels the world eating noodles
         external-image: false
         picture: assets/images/profile.jpg
-        twitter: johndoe
+        # twitter: nothing
 #    jamesfoster:
 #        name: James Foster
 #        bio: A Man who develops software with coffee
@@ -77,7 +78,7 @@ width: normal
 # paginate_path: "blog/:num/"
 
 # if you don't need projects, comment the *projects* configs below
-projects: true
+# projects: true
 
 # if you don't need "about" or "blog", comment them out below
 about: true
