@@ -1,6 +1,6 @@
 # main text of home
 name: Lidia Freitas
-bio: A Woman who travels the world eating sushi :) 
+bio: A woman who develops software in exchange for sushi
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -48,6 +48,7 @@ github: lidiamcfreitas
 # gitlab: mygitlab
 # lastfm: mylastfm
 # stackoverflow: 7044681/mystackoverflow
+stackoverflow: 4109485/lidia-freitas
 # quora: userquora
 # reddit: username
 # medium: medium
@@ -58,7 +59,7 @@ email: lidiamcfreitas@gmail.com
 authors:
     lidiamcfreitas:
         name: Lidia Freitas
-        bio: A Woman who travels the world eating sushi :) 
+        bio: A woman who develops software in exchange for sushi
         external-image: false
         picture: assets/images/profile.jpg
         # twitter: nothing
