@@ -1,6 +1,6 @@
 # main text of home
 name: Lidia Freitas
-bio: A woman who develops software in exchange for sushi
+bio: develops software in exchange for sushi
 
 # twitter summary info
 description: A blog about technology and stuff related
@@ -59,7 +59,7 @@ email: lidiamcfreitas@gmail.com
 authors:
     lidiamcfreitas:
         name: Lidia Freitas
-        bio: A woman who develops software in exchange for sushi
+        bio: develops software in exchange for sushi
         external-image: false
         picture: assets/images/profile.jpg
         # twitter: nothing
